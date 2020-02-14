@@ -1,0 +1,82 @@
+<mat-sidenav-container class="sidenav-container" style="background: white;">
+  <mat-sidenav  #drawer class="sidenav"
+    fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar style="color: white;">Menu</mat-toolbar>
+    <mat-nav-list *ngIf="navbarService.visible">
+      <a mat-list-item (click)="drawer.close()" routerLink="/home">
+        <mat-icon class="icon">home</mat-icon>
+        Home
+      </a>
+      <a mat-list-item (click)="drawer.close()" routerLink="/pay-my-bill">
+        <mat-icon class="icon">credit_card</mat-icon>
+        Pay My Bill
+      </a>
+      <a mat-list-item (click)="drawer.close()" routerLink="/usage">
+        <mat-icon class="icon">insert_chart</mat-icon>
+        Usage
+      </a>
+      <a mat-list-item (click)="drawer.close()" routerLink="/outages">
+        <mat-icon class="icon">build</mat-icon>
+        Outages
+      </a>
+      <a mat-list-item (click)="drawer.close()" routerLink="/my-account">
+        <mat-icon class="icon">settings</mat-icon>
+        My Account
+      </a>
+      <a mat-list-item (click)="drawer.close()" routerLink="/login">
+        <mat-icon class="icon">logout</mat-icon>
+        Logout
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content id="background-theme">
+    <mat-toolbar class="nav-bar" *ngIf="navbarService.visible">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span id="brand">My Utility Services</span>
+      <span class="spacer"></span>
+      <ul class="nav-list">
+        <a routerLink="/home" class="nav-list-item">
+          <button mat-button>
+            <mat-icon class="icon">home</mat-icon>
+            Home
+          </button>
+        </a>
+        <a routerLink="/pay-my-bill" class="nav-list-item">
+          <button mat-button>
+            <mat-icon class="icon">credit_card</mat-icon>
+            Pay My Bill
+          </button>
+        </a>
+        <a routerLink="/usage" class="nav-list-item">
+          <button mat-button>
+            <mat-icon class="icon">insert_chart</mat-icon>
+            Usage
+          </button>
+        </a>
+        <a routerLink="/outages" class="nav-list-item">
+          <button mat-button>
+            <mat-icon class="icon">build</mat-icon>
+            Outages
+          </button>
+        </a>
+        <a routerLink="/my-account" class="nav-list-item">
+          <button mat-button>
+            <mat-icon class="icon">settings</mat-icon>
+            My Account
+          </button>
+        </a>
+        <a routerLink="/login" class="nav-list-item">
+          <button mat-button>
+            <mat-icon class="icon">logout</mat-icon>
+            Logout
+          </button>
+        </a>
+      </ul>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

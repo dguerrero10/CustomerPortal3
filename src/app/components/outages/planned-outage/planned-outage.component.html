@@ -1,0 +1,18 @@
+<mat-list class="fadeInLeft">
+  <mat-list-item>
+    <img matListAvatar [src]="imgUrl" alt="...">
+    <h3 matLine style="font-weight: bold; text-decoration: underline;">Maintenance</h3>
+    <h3 matLine style="color:rgb(233, 157, 76); font-weight: bold;">Location: San Gabriel Area</h3>
+    <h3 matLine style="font-weight: bold;">Status: Planned</h3>
+    <p matLine><span
+      (click)="openOutageDetailsDialog()"
+      style="text-decoration: none; color:#0056B3; cursor: pointer;">
+      Click for Details
+    </span>
+    </p>
+    <p matLine>
+      <span>Published: {{date | date}}</span>
+    </p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

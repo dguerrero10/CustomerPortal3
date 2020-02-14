@@ -1,0 +1,63 @@
+.sidenav-container {
+  min-height: 100vh;
+  background: white;
+}
+
+.sidenav {
+  background: white;
+  min-width: 25vw;
+  height: 100%;
+}
+
+.mat-list-base {
+  padding-top: 0;
+}
+
+.icon {
+  padding-left: 10px;
+}
+
+.mat-list-item {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mat-list-item:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+}
+
+.card-text {
+  padding: 8px 0 !important;
+}
+
+#card-num {
+  font-size: 1.4em !important;
+  text-decoration: underline;
+  color: #11293e;
+}
+
+#bill-amount {
+  font-size: 1.2em !important;
+}
+
+#bill-date {
+  font-size: 1.1em;
+}
+
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 0;
+}
+.Rtable-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;  // Default to full width
+  padding: 0.8em 1.2em;
+  overflow: hidden; // Or flex might break
+  list-style: none;
+  background: fade(slategrey,20%);
+  > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+}
+

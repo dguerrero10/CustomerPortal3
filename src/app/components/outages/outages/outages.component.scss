@@ -1,0 +1,56 @@
+.outage-container {
+  display: flex;
+  height: 100vh;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.col-list {
+  flex: 1;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 6;
+}
+
+#tab-container {
+  padding-top: 15px;
+}
+
+.col-map {
+  flex: 3;
+}
+
+#report-btn {
+  margin: 25px;
+  padding: 10px;
+  width: 50%;
+  color: white;
+  background: rgb(211, 41, 84);
+}
+
+#mobile {
+  display: none;
+  position: relative;
+}
+
+.menu-section {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -25px;
+  width: 100%;
+  z-index: 6;
+  background: #FCFCFC;
+  height: 10vh;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 864px) {
+  #desktop {
+    display: none;
+  }
+
+  #mobile {
+    display: block;
+  }
+}

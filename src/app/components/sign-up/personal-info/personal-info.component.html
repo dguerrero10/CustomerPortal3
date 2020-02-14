@@ -1,0 +1,35 @@
+<app-login-toolbar></app-login-toolbar>
+<div class="form-container">
+  <mat-card id="form-card" class="fadeInDown">
+    <mat-card-header style="justify-content: center;">
+      <img [src]="logoImg" alt="">
+    </mat-card-header>
+    <div class="mat-h2">Sign Up | Personal Info</div>
+    <form>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>First Name</mat-label>
+        <input matInput required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Address</mat-label>
+        <input matInput required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Phone Number</mat-label>
+        <input matInput required>
+      </mat-form-field>
+
+      <button class="form-btn" style="margin-top: 20px;" mat-raised-button (click)="createAccount()">Sign Up</button>
+      <div class="back-to-link">
+        <a routerLink="/login">Go to Login</a>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,10 @@
+mat-toolbar {
+  background: #11293e;
+  color: white;
+}
+
+@media (max-width: 864px) {
+  mat-toolbar {
+    text-align: center;
+  }
+}

@@ -1,0 +1,39 @@
+<div class="outage-container" id="desktop">
+  <div class="col-list" style="overflow: auto;">
+    <div id="tab-container">
+      <mat-tab-group>
+        <mat-tab label="Current Outages">
+          <app-current-outages></app-current-outages>
+        </mat-tab>
+        <mat-tab label="Planned Outages">
+          <app-planned-outage></app-planned-outage>
+        </mat-tab>
+        <mat-tab label="My Outages">
+          <app-my-outages></app-my-outages>
+        </mat-tab>
+      </mat-tab-group>
+      <div class="mat-h4" style="text-align: center; margin: 10px;">
+        Outage reports disappear 24 hours after they are resolved.
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <button id="report-btn" (click)="openReportOutageDialog()"
+         mat-raised-button>Report Outage</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-map">
+    <app-agm-map></app-agm-map>
+  </div>
+</div>
+
+<div id="mobile">
+  <app-agm-map></app-agm-map>
+  <div class="menu-section">
+    <div style="display: flex; justify-content: center;">
+      <i class="material-icons">
+        keyboard_arrow_up
+      </i>
+    </div>
+    <div class="mat-h3" style="text-align: center;">Outage Menu</div>
+  </div>
+</div>

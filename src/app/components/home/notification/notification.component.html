@@ -1,0 +1,10 @@
+<div *ngIf="notification$ | async as notification">
+  <h2 mat-dialog-title>{{notification.title}}</h2>
+  <mat-dialog-content class="mat-typography">
+    <p>{{notification.message}}</p>
+    <p>{{notification.date | date}}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button mat-button mat-dialog-close>Okay</button>
+  </mat-dialog-actions>
+</div>

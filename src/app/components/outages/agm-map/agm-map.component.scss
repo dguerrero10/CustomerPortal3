@@ -1,0 +1,9 @@
+agm-map {
+  height: 100vh;
+}
+
+@media (max-width: 864px) {
+  agm-map {
+    height: 90vh;
+  }
+}

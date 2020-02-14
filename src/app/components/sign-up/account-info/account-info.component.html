@@ -1,0 +1,41 @@
+<app-login-toolbar></app-login-toolbar>
+<div class="form-container">
+  <mat-card id="form-card" class="fadeInDown">
+    <mat-card-header style="justify-content: center;">
+      <img [src]="logoImg" alt="">
+    </mat-card-header>
+    <div class="mat-h2">Sign Up | Account Info</div>
+    <form>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Enter your Account Number</mat-label>
+        <input matInput placeholder="GH7223213131" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Enter your Email</mat-label>
+        <input matInput placeholder="pat@example.com" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Create Password </mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Confirm Password </mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button class="form-btn" style="margin-top: 20px;" mat-raised-button routerLink="./personal-info">Next</button>
+      <div class="back-to-link">
+        <a routerLink="/login">Go to Login</a>
+      </div>
+    </form>
+  </mat-card>
+</div>

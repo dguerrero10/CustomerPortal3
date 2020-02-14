@@ -1,0 +1,34 @@
+<mat-toolbar id="location">
+  <span><i class="material-icons">
+    location_on
+    </i>1234 Hope. St</span>
+</mat-toolbar>
+
+<div class="chart-wrapper">
+  <div class="chart-row-container">
+    <mat-card class="chart-card-row fadeInUp">
+      <mat-card-header class="card-header">
+        <mat-card-title class="card-title">Dollars (per Month)</mat-card-title>
+      </mat-card-header>
+      <app-chart-dollars></app-chart-dollars>
+    </mat-card>
+  </div>
+  <div class="chart-row-container">
+    <div class="col">
+      <mat-card class="chart-card-col fadeInUp">
+        <mat-card-header class="card-header">
+          <mat-card-title class="card-title">Gallons (per Day)</mat-card-title>
+        </mat-card-header>
+        <app-chart-gallons></app-chart-gallons>
+      </mat-card>
+    </div>
+    <div class="col">
+      <mat-card class="chart-card-col fadeInUp">
+        <mat-card-header class="card-header">
+          <mat-card-title class="card-title">CCF (per Day)</mat-card-title>
+        </mat-card-header>
+        <app-chart-ccf></app-chart-ccf>
+      </mat-card>
+    </div>
+  </div>
+</div>

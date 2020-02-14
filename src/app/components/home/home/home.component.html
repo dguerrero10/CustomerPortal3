@@ -1,0 +1,61 @@
+<div class="page-container">
+  <div class="row-container">
+    <div class="col">
+      <mat-card class="card fadeInLeft">
+        <mat-card-header class="card-header">
+          <mat-card-title class="card-title">
+            Pay My Bill
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="col">
+      <mat-card class="card fadeInRight">
+        <mat-card-header class="card-header">
+          <mat-card-title class="card-title">Usage</mat-card-title>
+        </mat-card-header>
+        <app-chart-dollars></app-chart-dollars>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row-container">
+    <div class="col">
+      <mat-card class="card fadeInUp">
+        <mat-card-header class="card-header">
+          <mat-card-title class="card-title">Notifications</mat-card-title>
+        </mat-card-header>
+        <div class="mat-list-container">
+          <mat-list>
+            <mat-list-item (click)="openNotification()"
+              *ngFor="let notification of notifications$ | async">
+              <mat-icon matListIcon>{{notification.icon}}</mat-icon>
+              <h3 matLine>{{notification.title}} </h3>
+              <p matLine>
+                <span>{{notification.message}}</span>
+              </p>
+              <p matLine>
+                  <span>Sent: {{notification.date | date }}</span>
+                </p>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col">
+      <mat-card class="card fadeInUp">
+        <mat-card-header class="card-header">
+          <mat-card-title class="card-title">Outages</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </div>
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="line-scale-party"
+  >
+  <p style="color: white;">Creating your account...</p>
+  </ngx-spinner>
+</div>

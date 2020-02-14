@@ -1,0 +1,14 @@
+<h1 mat-dialog-title style="text-align: center;">Update Phone Number</h1>
+<div mat-dialog-content>
+  <p>Enter your new Phone Number</p>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Phone Number</mat-label>
+    <input matInput [(ngModel)]="data.phone">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="justify-content: center;">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.phone" cdkFocusInitial id="update-btn">
+    Update
+  </button>
+</div>

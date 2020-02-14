@@ -1,0 +1,18 @@
+<div class="list-container">
+<mat-list class="fadeInLeft">
+  <mat-list-item *ngFor="let outage of outages$ | async">
+    <img matListAvatar [src]="outage.imgUrl" alt="...">
+    <h3 matLine style="font-weight: bold; text-decoration: underline;">{{outage.type}}</h3>
+    <h3 matLine style="color:rgb(233, 157, 76); font-weight: bold;">Location: {{outage.location}}</h3>
+    <h3 matLine style="font-weight: bold;" [ngClass]="{'waiting-status': outage.status === 'Waiting On Utility Response',
+    'pending-status': outage.status === 'Being Processed',
+    'progress-status': outage.status === 'Working On'}">
+    Status: {{outage.status}}</h3>
+    <h3 matLine style="font-weight: bold;">{{outage.comment}}</h3>
+    <p matLine>
+      <span> {{outage.date | date:'medium'}} </span>
+    </p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+</div>
