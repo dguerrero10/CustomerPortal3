@@ -9,17 +9,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./previous-payments.component.scss']
 })
 export class PreviousPaymentsComponent implements OnInit {
-  public innerWidth: any;
-  public opened: boolean;
-
   bills$: Observable<Bill[]>;
 
   constructor(private payBillService: PayMyBillService) { }
 
   ngOnInit() {
    this.bills$ = this.payBillService.getBills();
-
-   this.innerWidth = window.innerWidth;
-   this.opened = this.innerWidth < 766 ? false : true;
   }
 }

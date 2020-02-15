@@ -1,63 +1,114 @@
-.sidenav-container {
-  min-height: 100vh;
-  background: white;
+.page-wrapper {
+  width: 100%;
+  padding: 0;
 }
 
-.sidenav {
-  background: white;
-  min-width: 25vw;
-  height: 100%;
+.row-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0;
 }
 
-.mat-list-base {
-  padding-top: 0;
+.sect-header {
+  text-align: center;
+  padding: 10px;
 }
 
-.icon {
-  padding-left: 10px;
+.col-list {
+  flex: 2;
+  min-width: 400px;
+  max-width: 400px;
+  border: 1px solid lightgray;
+  border-top: none;
+  height: 100vh;
+  padding: 0;
 }
 
-.mat-list-item {
+mat-list-item {
+  height: 100px !important;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all .2s ease-in ;
 }
 
-.mat-list-item:hover {
+mat-list-item:hover {
+  background: whitesmoke;
   box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
 }
 
-.card-text {
-  padding: 8px 0 !important;
+.mat-line {
+  padding: 5px !important;
 }
 
-#card-num {
-  font-size: 1.4em !important;
-  text-decoration: underline;
-  color: #11293e;
-}
-
-#bill-amount {
+mat-list-item h3 {
   font-size: 1.2em !important;
 }
 
-#bill-date {
-  font-size: 1.1em;
+.col-detail {
+  flex: 1
 }
 
-.Rtable {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 0 3em 0;
-  padding: 0;
-}
-.Rtable-cell {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;  // Default to full width
-  padding: 0.8em 1.2em;
-  overflow: hidden; // Or flex might break
-  list-style: none;
-  background: fade(slategrey,20%);
-  > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+#cardNum {
+  text-decoration: underline;
 }
 
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: .7s;
+  animation-duration: .7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@media (max-width: 864px) {
+  #mobile {
+    display: none;
+  }
+  .col-list {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+  .page-wrapper {
+    height: 100vh;
+  }
+
+  mat-list-item {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+}

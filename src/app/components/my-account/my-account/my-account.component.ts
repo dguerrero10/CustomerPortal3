@@ -5,6 +5,7 @@ import { AccountEmailComponent } from './account-email/account-email.component';
 import { AccountPhoneComponent } from './account-phone/account-phone.component';
 import { AccountPasswordComponent } from './account-password/account-password.component';
 import { MatSnackBar } from '@angular/material';
+import { AccountPhotoComponent } from './account-photo/account-photo.component';
 
 export interface EmailDialogData {
   email: string;
@@ -14,6 +15,9 @@ export interface PhoneDialogData {
 }
 export interface PasswordDialogData {
   password: string;
+}
+export interface PhotoDialogData {
+  photo: string;
 }
 
 @Component({
@@ -25,6 +29,7 @@ export class MyAccountComponent implements OnInit {
   password = 'LisaForEver';
   phone = '(626) 123-4567';
   email = 'lisaA@gmail.com';
+  photo = '../../../../assets/images/avatar/lisa-a.jpg';
 
   action = 'Dismiss';
   message: string;
@@ -77,6 +82,21 @@ export class MyAccountComponent implements OnInit {
       this.openSnackBar(this.message, this.action);
     });
   }
+
+  openPhotoDialog(): void {
+    const dialogRef = this.dialog.open(AccountPhotoComponent, {
+      width: '350px',
+      data: {photo: this.photo}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.password = result;
+      this.message = 'Your profile photo was updated.';
+      this.openSnackBar(this.message, this.action);
+    });
+  }
+
   openSnackBar(message, action) {
     this._snackBar.open(message, action, {
       duration: 3000,

@@ -1,0 +1,26 @@
+<div class="page-container">
+  <div class="row-container">
+    <div class="col-list fadeInLeft">
+      <mat-list>
+        <div>
+          <h3 class="mat-h2 sect-header">Previous Payments</h3>
+        </div>
+        <mat-divider></mat-divider>
+        <mat-list-item *ngFor="let bill of bills$ | async">
+          <h3 matLine id="cardNum">From Card -- {{bill.cardNum}}</h3>
+          <h3 matLine>Amount Paid: ${{bill.amount}}</h3>
+          <p matLine>
+            <span>Paid On: {{bill.billDate | date}} </span>
+          </p>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+      <div class="mat-h3" style="text-align: center; margin: 15px 5px;">
+        Your previous payments are kept for a year.
+      </div>
+    </div>
+    <div class="col-detail" id="mobile">
+
+    </div>
+  </div>
+</div>

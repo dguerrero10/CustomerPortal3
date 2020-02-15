@@ -7,11 +7,15 @@ import { NavbarService } from '../../shared-services/navbar.service';
   styleUrls: ['./pay-my-bill.component.scss']
 })
 export class PayMyBillComponent implements OnInit {
+  public innerWidth: any;
+  public matStretchTabs: boolean;
 
   constructor(public navbarService: NavbarService) { }
 
   ngOnInit() {
     this.navbarService.show();
-  }
 
+    this.innerWidth = window.innerWidth;
+    this.matStretchTabs = this.innerWidth < 766 ? false : true;
+  }
 }

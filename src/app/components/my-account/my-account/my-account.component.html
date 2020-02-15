@@ -16,8 +16,8 @@
   <mat-list class="list-container">
     <div class="mat-headline category">Profile</div>
 
-    <mat-list-item id="avatar-item">
-      <img id="avatar" matListAvatar src="../../../../assets/images/avatar/lisa-a.jpg" alt="...">
+    <mat-list-item id="avatar-item" (click)="openPhotoDialog()">
+      <img id="avatar" matListAvatar [src]="photo" alt="...">
       <h4 mat-line>Profile Image</h4>
       <p mat-line>A photo helps personalize your account</p>
     </mat-list-item>
