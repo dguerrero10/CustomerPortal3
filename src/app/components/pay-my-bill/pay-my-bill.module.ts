@@ -6,12 +6,14 @@ import { PayMyBillComponent } from './pay-my-bill/pay-my-bill.component';
 import { PayComponent } from './pay-my-bill/pay/pay.component';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 import { PreviousPaymentsComponent } from './previous-payments/previous-payments.component';
+import { BillDetailComponent } from './bill-detail/bill-detail.component';
 
 @NgModule({
   declarations: [
     PayMyBillComponent,
     PayComponent,
-    PreviousPaymentsComponent
+    PreviousPaymentsComponent,
+    BillDetailComponent
   ],
   imports: [
     CommonModule,

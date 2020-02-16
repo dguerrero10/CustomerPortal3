@@ -1,0 +1,83 @@
+.page-wrapper {
+  width: 100%;
+  padding: 0;
+}
+
+.row-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  padding: 0;
+}
+.detail-container {
+  border: 1px solid lightgray;
+  flex: 1;
+  margin: 25px 35px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 1%;
+}
+
+#bill-detail-header {
+  background:#11293e;
+  color: white;
+  justify-content: center;
+}
+
+.row-detail {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  text-align: center;
+  padding: 25px;
+  border-bottom: 1px solid lightgray;
+}
+
+.sm-col {
+  flex: 1;
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: .7s;
+  animation-duration: .7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@media (max-width: 500px) {
+  #mobile {
+    display: none;
+  }
+}

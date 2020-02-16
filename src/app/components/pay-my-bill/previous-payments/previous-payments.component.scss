@@ -3,23 +3,52 @@
   padding: 0;
 }
 
+.detail-container {
+  border: 1px solid lightgray;
+  flex: 1;
+  margin: 25px 55px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 1%;
+  box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
+}
+
+#bill-detail-header {
+  background:#11293e;
+  color: white;
+  justify-content: center;
+}
+
+.row-detail {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  text-align: center;
+  padding: 25px;
+  border-bottom: 1px solid lightgray;
+}
+
+.sm-col {
+  flex: 1;
+}
+
 .row-container {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  justify-content: center;
   padding: 0;
 }
 
 .sect-header {
   text-align: center;
   padding: 10px;
+  margin: 0 0 0 !important;
 }
 
 .col-list {
-  flex: 2;
-  min-width: 400px;
+  flex: 1;
   max-width: 400px;
   border: 1px solid lightgray;
   border-top: none;
@@ -46,10 +75,6 @@ mat-list-item h3 {
   font-size: 1.2em !important;
 }
 
-.col-detail {
-  flex: 1
-}
-
 #cardNum {
   text-decoration: underline;
 }
@@ -57,8 +82,8 @@ mat-list-item h3 {
 @-webkit-keyframes fadeInLeft {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(-75%, 0, 0);
+    transform: translate3d(-75%, 0, 0);
   }
 
   to {
@@ -71,8 +96,8 @@ mat-list-item h3 {
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(-75%, 0, 0);
+    transform: translate3d(-75%, 0, 0);
   }
 
   to {
@@ -93,15 +118,23 @@ mat-list-item h3 {
 
 
 @media (max-width: 864px) {
-  #mobile {
-    display: none;
+  .row-container {
+    display: block;
   }
   .col-list {
-    width: 100%;
+    width: 100% !important;
+    overflow: hidden;
+    max-width: 1000px;
+    height: 1%;
     border-left: none;
     border-right: none;
     border-bottom: none;
   }
+
+  mat-list {
+    width: 100%;
+  }
+
   .page-wrapper {
     height: 100vh;
   }
@@ -110,5 +143,11 @@ mat-list-item h3 {
     padding-right: 0 !important;
     padding-left: 0 !important;
   }
+}
 
+
+@media (max-width: 500px) {
+  #mobile {
+    display: none;
+  }
 }

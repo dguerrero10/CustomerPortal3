@@ -8,6 +8,7 @@ import { ChartDollarsComponent } from '../components/usage/usage/chart-dollars/c
 import { ChartGallonsComponent } from '../components/usage/usage/chart-gallons/chart-gallons.component';
 import { LoginToolbarComponent } from '../components/login/login-toolbar/login-toolbar.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CurrentOutagesComponent } from '../components/outages/current-outages/current-outages.component';
 
 @NgModule({
  imports: [
@@ -20,7 +21,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     LoginToolbarComponent,
     ChartCcfComponent,
     ChartDollarsComponent,
-    ChartGallonsComponent
+    ChartGallonsComponent,
+    CurrentOutagesComponent
     ],
  exports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     LoginToolbarComponent,
     ChartCcfComponent,
     ChartDollarsComponent,
-    ChartGallonsComponent
+    ChartGallonsComponent,
+    CurrentOutagesComponent
     ]
 })
 export class SharedModule {}

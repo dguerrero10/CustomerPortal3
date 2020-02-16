@@ -1,7 +1,7 @@
 <div class="list-container">
 <mat-list class="fadeInLeft">
   <mat-list-item *ngFor="let outage of outages$ | async">
-    <img matListAvatar [src]="outage.imgUrl" alt="...">
+    <img matListAvatar [src]="outage.imgUrl"  alt="..." id="mobile-view-ava">
     <h3 matLine style="font-weight: bold; text-decoration: underline;">{{outage.type}}</h3>
     <h3 matLine style="color:rgb(233, 157, 76); font-weight: bold;">Location: {{outage.location}}</h3>
     <h3 matLine style="font-weight: bold;" [ngClass]="{'waiting-status': outage.status === 'Waiting On Utility Response',

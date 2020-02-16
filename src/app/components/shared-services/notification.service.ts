@@ -17,7 +17,7 @@ export class NotificationService {
       'Payment Made',
       'Your payment of 87$ was processed and your account is up to date.',
       date,
-      'check_circle_outline'
+      'check_circle'
     ),
     new Notification (
       '2',
@@ -52,21 +52,21 @@ export class NotificationService {
       'Payment Made',
       'Your payment of 90$ was processed and your account is up to date.',
       date,
-      'check_circle_outline'
+      'check_circle'
     ),
     new Notification (
       '7',
       'Payment Made',
       'Your payment of 83$ was processed and your account is up to date.',
       date,
-      'check_circle_outline'
+      'check_circle'
     ),
     new Notification (
       '8',
       'Payment Made',
       'Your payment of 65$ was processed and your account is up to date.',
       date,
-      'check_circle_outline'
+      'check_circle'
     ),
   ];
   constructor() { }

@@ -17,10 +17,6 @@
   color: rgb(211, 41, 84) !important;
 }
 
-// .mat-list-item:hover {
-//   box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
-// }
-
 .mat-line {
   padding: 4px 0 !important;
   font-size: 1em !important;
@@ -71,5 +67,11 @@ img {
 @media (max-width: 800px) {
   .list-container {
     height: 400px;
+  }
+}
+
+@media (max-width: 446px) {
+  #mobile-view-ava {
+    margin-left: -16px;
   }
 }
