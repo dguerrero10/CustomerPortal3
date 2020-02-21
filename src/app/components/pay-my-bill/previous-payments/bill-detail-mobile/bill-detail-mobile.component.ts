@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { NavbarService } from 'src/app/components/shared-services/navbar.service';
+import { Bill } from '../../pay-my-bill-shared/bill.model';
+import { PayMyBillService } from '../../pay-my-bill-shared/pay-my-bill.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { NavbarService } from '../../shared-services/navbar.service';
-import { PayMyBillService } from '../pay-my-bill-shared/pay-my-bill.service';
-import { Bill } from '../pay-my-bill-shared/bill.model';
 
 @Component({
-  selector: 'app-bill-detail',
-  templateUrl: './bill-detail.component.html',
-  styleUrls: ['./bill-detail.component.scss']
+  selector: 'app-bill-detail-mobile',
+  templateUrl: './bill-detail-mobile.component.html',
+  styleUrls: ['./bill-detail-mobile.component.scss']
 })
-export class BillDetailComponent implements OnInit {
+export class BillDetailMobileComponent implements OnInit {
   bill$: Observable<Bill>;
 
   constructor(public navbarService: NavbarService,

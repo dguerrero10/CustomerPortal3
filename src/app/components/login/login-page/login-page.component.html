@@ -6,12 +6,12 @@
     </mat-card-header>
     <div class="mat-display-1" style="margin-bottom: 10px;">Login</div>
     <form>
-      <mat-form-field appearance="fill" class="form-field">
+      <mat-form-field  class="form-field">
         <mat-label>Enter your email</mat-label>
         <input matInput placeholder="pat@example.com" required>
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="form-field">
+      <mat-form-field class="form-field">
         <mat-label>Enter your password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"

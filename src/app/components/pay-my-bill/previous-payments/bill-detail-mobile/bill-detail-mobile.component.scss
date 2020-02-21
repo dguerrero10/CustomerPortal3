@@ -1,0 +1,42 @@
+.detail-table {
+  margin: 0;
+  overflow: hidden;
+  height: 1%;
+}
+
+.row-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  padding: 0;
+}
+
+#bill-detail-header {
+  justify-content: center;
+  position: relative;
+  text-decoration: underline;
+  margin: 0 0 0 !important;
+}
+
+#back-arrow {
+  position: absolute;
+  left: 25px;
+  margin-top: 3px;
+  color: #0056B3;
+  cursor: pointer;
+}
+
+.row-detail {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  text-align: center;
+  padding: 25px;
+  border-bottom: 1px solid lightgray;
+}
+
+.sm-col {
+  flex: 1;
+}

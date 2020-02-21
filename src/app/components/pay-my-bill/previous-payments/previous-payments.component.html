@@ -1,17 +1,21 @@
+<app-pay-bill-nav></app-pay-bill-nav>
 <div class="page-container">
   <div class="row-container">
     <div class="col-list fadeInLeft">
       <mat-list>
-        <div>
+        <div class="mobile">
           <h3 class="mat-h2 sect-header">Previous Payments</h3>
         </div>
-        <mat-divider></mat-divider>
+        <mat-divider class="mobile"></mat-divider>
         <mat-list-item *ngFor="let bill of bills$ | async">
-          <h3 matLine id="cardNum">From Card -- {{bill.cardNum}}</h3>
-          <h3 matLine>Amount Paid: ${{bill.amount}}</h3>
-          <p matLine>
+          <h3 matLine id="card-num">From Card -- {{bill.cardNum}}</h3>
+          <h3 matLine id="amount-paid">Amount Paid: ${{bill.amountThisPeriod}}</h3>
+          <p matLine id="paid-date">
             <span>Paid On: {{bill.billDate | date}} </span>
           </p>
+          <div matline class="mobile-link">
+            <button mat-flat-button [routerLink]="['/previous-payments', bill.id]">View Details</button>
+          </div>
           <mat-divider></mat-divider>
         </mat-list-item>
       </mat-list>
@@ -19,49 +23,8 @@
         Your previous payments are kept for a year.
       </div>
     </div>
-    <div class="detail-container fadeInLeft" id="mobile">
-      <div class="row-detail mat-h1" id="bill-detail-header">
-        Bill Details
-      </div>
-      <div class="row-detail">
-        <div class="sm-col">
-          Bill Date
-        </div>
-        <div class="sm-col">
-          03/01/2020
-        </div>
-      </div>
-      <div class="row-detail">
-        <div class="sm-col">
-          Due Date
-        </div>
-        <div class="sm-col">
-          03/31/2020
-        </div>
-      </div>
-      <div class="row-detail">
-        <div class="sm-col">
-          Total Bill This Period
-        </div>
-        <div class="sm-col">
-          $80
-        </div>
-      </div>
-      <div class="row-detail">
-        <div class="sm-col">
-          Previous Balanced Owed
-        </div>
-        <div class="sm-col">
-          $0
-        </div>
-      </div>
-      <div class="row-detail" style="border-bottom: none;">
-        <div class="sm-col">
-          Total Amount Due
-        </div>
-        <div class="sm-col">
-          $80
-        </div>
-      </div>
+    <div class="detail-container mobile fadeInUp">
+      <app-bill-detail></app-bill-detail>
     </div>
   </div>
+</div>

@@ -25,6 +25,7 @@ import { NavbarService } from './components/shared-services/navbar.service';
 import { ReportOutageModalComponent } from './components/outages/report-outage-modal/report-outage-modal.component';
 import { OutageDetailsComponent } from './components/outages/outage-details/outage-details.component';
 import { NotificationComponent } from './components/home/notification/notification.component';
+import { AutoPayEnrollComponent } from './components/pay-my-bill/pay-my-bill/pay/auto-pay-enroll/auto-pay-enroll.component';
 
 @NgModule({
   declarations: [
@@ -56,12 +57,12 @@ import { NotificationComponent } from './components/home/notification/notificati
   entryComponents: [
    NotificationComponent,
    OutageDetailsComponent,
+   AutoPayEnrollComponent,
    ReportOutageModalComponent,
    AccountEmailComponent,
    AccountPasswordComponent,
    AccountPhoneComponent,
    AccountPhotoComponent
-
   ]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
-.page-wrapper {
-  width: 100%;
-  padding: 0;
+.detail-table {
+  overflow: hidden;
+  height: 1%;
 }
 
 .row-container {
@@ -9,14 +9,6 @@
   -webkit-flex-direction: row;
   flex-direction: row;
   padding: 0;
-}
-.detail-container {
-  border: 1px solid lightgray;
-  flex: 1;
-  margin: 25px 35px;
-  border-radius: 5px;
-  overflow: hidden;
-  height: 1%;
 }
 
 #bill-detail-header {

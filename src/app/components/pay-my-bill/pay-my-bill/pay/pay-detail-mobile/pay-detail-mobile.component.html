@@ -1,0 +1,42 @@
+<div *ngIf="bill$ | async as bill">
+  <div class="bill-preview">
+    <div class="mat-h1">Total Amount</div>
+    <div class="mat-display-1">${{bill.totalDue}}</div>
+    <div class="view-detail-btn">
+      <button mat-flat-button (click)="toggle()">
+        View Details
+      </button>
+    </div>
+    <ng-container *ngIf="show" >
+      <div class="bill-detail-container" >
+        <mat-list>
+          <mat-list-item>
+            <p matLine>Bill Date</p>
+            <h3 matLine>{{bill.billDate | date}}</h3>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+          <mat-list-item>
+            <p matLine>Due Date</p>
+            <h3 matLine>{{bill.dueDate | date}}</h3>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+          <mat-list-item>
+            <p matLine>Total Bill This Period</p>
+            <h3 matLine>${{bill.amountThisPeriod}}</h3>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+          <mat-list-item>
+            <p matLine>Previous Balance Owed</p>
+            <h3 matLine>${{bill.previousBalance}}</h3>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+          <mat-list-item>
+            <p matLine>Total Due</p>
+            <h3 matLine>${{bill.totalDue}}</h3>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </ng-container>
+  </div>
+</div>

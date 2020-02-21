@@ -4,10 +4,12 @@ import { Observable } from 'rxjs';
 import { NotificationService } from '../../shared-services/notification.service';
 import { Notification } from '../../shared-services/notification.model';
 import { Outage } from '../../outages/shared/outage.model';
+import { Bill } from '../../pay-my-bill/pay-my-bill-shared/bill.model';
 import { MatDialog } from '@angular/material';
 import { NotificationComponent } from '../notification/notification.component';
 import { Router } from '@angular/router';
 import { OutagesService } from '../../outages/shared/outages.service';
+import { PayMyBillService } from '../../pay-my-bill/pay-my-bill-shared/pay-my-bill.service';
 
 @Component({
   selector: 'app-home',
@@ -20,16 +22,19 @@ export class HomeComponent implements OnInit {
 
   notifications$: Observable<Notification[]>;
   outages$: Observable<Outage[]>;
+  currentBill$: Observable<Bill>;
 
   constructor(public navbarService: NavbarService,
               public notifService: NotificationService,
               public outagesService: OutagesService,
+              public billService: PayMyBillService,
               public dialog: MatDialog,
               public router: Router
               ) { }
 
   ngOnInit() {
     this.navbarService.show();
+    this.currentBill$ = this.billService.getCurrentBill();
     this.outages$ = this.outagesService.getOutages();
     this.notifications$ = this.notifService.getNotifications();
     console.log(this.notifications$);

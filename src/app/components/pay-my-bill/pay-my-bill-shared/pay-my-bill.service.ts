@@ -48,4 +48,16 @@ export class PayMyBillService {
   getBills(): Observable<Bill[]> {
     return of(this._bills);
   }
+
+  getBill(id: string) {
+    return this.getBills().pipe(
+      map((bills: Bill[]) => bills.find(bill => bill.id === id))
+    );
+  }
+
+  getCurrentBill() {
+    return this.getBills().pipe(
+      map((bills: Bill[]) => bills.find(bill => bill.id === '3'))
+    );
+  }
 }

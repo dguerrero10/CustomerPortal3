@@ -22,7 +22,7 @@ import { CurrentOutagesComponent } from '../components/outages/current-outages/c
     ChartCcfComponent,
     ChartDollarsComponent,
     ChartGallonsComponent,
-    CurrentOutagesComponent
+    CurrentOutagesComponent,
     ],
  exports: [
     CommonModule,
@@ -35,7 +35,7 @@ import { CurrentOutagesComponent } from '../components/outages/current-outages/c
     ChartCcfComponent,
     ChartDollarsComponent,
     ChartGallonsComponent,
-    CurrentOutagesComponent
+    CurrentOutagesComponent,
     ]
 })
 export class SharedModule {}

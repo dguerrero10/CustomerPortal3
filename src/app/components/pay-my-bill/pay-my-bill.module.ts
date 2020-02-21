@@ -7,13 +7,21 @@ import { PayComponent } from './pay-my-bill/pay/pay.component';
 import { SharedModule } from 'src/app/shared-module/shared.module';
 import { PreviousPaymentsComponent } from './previous-payments/previous-payments.component';
 import { BillDetailComponent } from './bill-detail/bill-detail.component';
+import { BillDetailMobileComponent } from './previous-payments/bill-detail-mobile/bill-detail-mobile.component';
+import { PayBillNavComponent } from './pay-bill-nav/pay-bill-nav.component';
+import { AutoPayEnrollComponent } from './pay-my-bill/pay/auto-pay-enroll/auto-pay-enroll.component';
+import { PayDetailMobileComponent } from './pay-my-bill/pay/pay-detail-mobile/pay-detail-mobile.component';
 
 @NgModule({
   declarations: [
     PayMyBillComponent,
     PayComponent,
     PreviousPaymentsComponent,
-    BillDetailComponent
+    BillDetailComponent,
+    BillDetailMobileComponent,
+    PayBillNavComponent,
+    AutoPayEnrollComponent,
+    PayDetailMobileComponent
   ],
   imports: [
     CommonModule,

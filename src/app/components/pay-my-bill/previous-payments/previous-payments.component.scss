@@ -4,13 +4,9 @@
 }
 
 .detail-container {
-  border: 1px solid lightgray;
   flex: 1;
-  margin: 25px 55px;
-  border-radius: 5px;
   overflow: hidden;
   height: 1%;
-  box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
 }
 
 #bill-detail-header {
@@ -57,7 +53,7 @@
 }
 
 mat-list-item {
-  height: 100px !important;
+  height: 135px !important;
   cursor: pointer;
   transition: all .2s ease-in ;
 }
@@ -75,8 +71,25 @@ mat-list-item h3 {
   font-size: 1.2em !important;
 }
 
-#cardNum {
+#card-num {
   text-decoration: underline;
+}
+
+#amount-paid {
+  color: #126BC5;
+}
+
+#paid-date {
+  color: #939393;
+}
+
+.mobile-link {
+  display: none;
+  width: 200px;
+}
+
+.mobile-link button {
+  color: #0056B3;
 }
 
 @-webkit-keyframes fadeInLeft {
@@ -116,11 +129,20 @@ mat-list-item h3 {
   animation-fill-mode: both;
 }
 
-
 @media (max-width: 864px) {
   .row-container {
     display: block;
   }
+
+  .mobile-link {
+    display: block;
+  }
+
+  mat-list-item:hover {
+    background: white;
+    box-shadow: none;
+  }
+
   .col-list {
     width: 100% !important;
     overflow: hidden;
@@ -147,7 +169,7 @@ mat-list-item h3 {
 
 
 @media (max-width: 500px) {
-  #mobile {
+  .mobile {
     display: none;
   }
 }

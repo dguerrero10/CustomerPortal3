@@ -1,0 +1,63 @@
+<div class="page-wrapper">
+  <div class="detail-table" *ngIf="bill$ | async as bill">
+    <div class="row-detail mat-h1" id="bill-detail-header">
+      <span id="back-arrow" routerLink="/previous-payments">
+        <i class="material-icons">
+          arrow_back
+          </i>
+      </span>
+      Bill Details
+    </div>
+    <div class="row-detail">
+      <div class="sm-col">
+        Bill Date
+      </div>
+      <div class="sm-col">
+        {{bill.billDate | date}}
+      </div>
+    </div>
+    <div class="row-detail">
+      <div class="sm-col">
+        Due Date
+      </div>
+      <div class="sm-col">
+        {{ bill.dueDate | date}}
+      </div>
+    </div>
+    <div class="row-detail">
+      <div class="sm-col">
+        Total Bill This Period
+      </div>
+      <div class="sm-col">
+       ${{bill.totalDue}}
+      </div>
+    </div>
+    <div class="row-detail">
+      <div class="sm-col">
+        Previous Balanced Owed
+      </div>
+      <div class="sm-col">
+       ${{bill.previousBalance}}
+      </div>
+    </div>
+    <div class="row-detail">
+      <div class="sm-col">
+        Total Payed
+      </div>
+      <div class="sm-col">
+       ${{bill.totalPayed}}
+      </div>
+    </div>
+    <div class="row-detail" style="border-bottom: none;">
+      <div class="sm-col" style="text-align: left;">
+        <a href="" style="text-decoration: none; color:#0056B3;">
+          <i class="material-icons" style="color:rgb(211, 41, 84);">
+            picture_as_pdf
+          </i> Download pdf
+        </a>
+      </div>
+      <div class="sm-col">
+      </div>
+    </div>
+  </div>
+</div>
