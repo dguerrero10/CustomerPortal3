@@ -1,13 +1,13 @@
 <h1 mat-dialog-title style="text-align: center;">Update Profile Image</h1>
 <div mat-dialog-content>
   <p>Upload New Image</p>
-  <!-- <mat-form-field style="width: 100%;"> -->
-    <input type="file" (change)="data.photo">
-  <!-- </mat-form-field> -->
+  <mat-form-field style="width: 100%;">
+    <input type="file">
+  </mat-form-field>
 </div>
 <div mat-dialog-actions style="justify-content: center;">
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data.photo" cdkFocusInitial id="update-btn">
+  <button mat-raised-button  cdkFocusInitial id="update-btn">
     Update
   </button>
 </div>

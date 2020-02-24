@@ -24,7 +24,7 @@ export class ChartGallonsComponent implements OnInit {
 
       data: {
         datasets: [{
-          label: 'Usage (in Gallons)',
+          label: 'Gallons',
           backgroundColor: 'rgba(0, 128, 255, .5)',
           borderColor: 'rgba(0, 128, 255, .7)',
           fill: true,

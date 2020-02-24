@@ -1,6 +1,6 @@
 <div *ngIf="bill$ | async as bill">
-  <div class="bill-preview">
-    <div class="mat-h1">Total Amount</div>
+  <div class="bill-preview fadeInUp">
+    <div class="mat-h1">Total Due</div>
     <div class="mat-display-1">${{bill.totalDue}}</div>
     <div class="view-detail-btn">
       <button mat-flat-button (click)="toggle()">
@@ -33,7 +33,6 @@
           <mat-list-item>
             <p matLine>Total Due</p>
             <h3 matLine>${{bill.totalDue}}</h3>
-            <mat-divider></mat-divider>
           </mat-list-item>
         </mat-list>
       </div>

@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Outage Details</h2>
+<mat-dialog-content class="mat-typography" *ngIf="outages$ | async as outage">
+  <div id="img-container">
+    <img [src]="outage.imgUrl" alt="..." id="mobile-view-ava">
+  </div>
+  <mat-list>
+    <mat-list-item >
+      <h3 matLine style="font-weight: bold; text-decoration: underline;">{{outage.type}}</h3>
+      <h3 matLine style="color:rgb(233, 157, 76); font-weight: bold;">Location: {{outage.location}}</h3>
+      <h3 matLine style="font-weight: bold;" [ngClass]="{'waiting-status': outage.status === 'Waiting On Utility Response',
+      'pending-status': outage.status === 'Being Processed',
+      'progress-status': outage.status === 'Working On'}">
+      Status: {{outage.status}}</h3>
+      <h3 matLine style="font-weight: bold;">{{outage.comment}}</h3>
+      <p matLine>
+        <span> {{outage.date | date:'medium'}} </span>
+      </p>
+      <mat-divider style="margin-left: 16px;"></mat-divider>
+    </mat-list-item>
+  </mat-list>
+  <p style="margin-top: 25px">
+    <span style="font-weight: bold;">Utility Comment:</span>
+    There's currently no comment on behalf of the Utility.
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-raised-button mat-dialog-close>Okay</button>
+</mat-dialog-actions>
+

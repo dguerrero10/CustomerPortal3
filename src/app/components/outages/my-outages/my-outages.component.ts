@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./my-outages.component.scss']
 })
 export class MyOutagesComponent implements OnInit {
-  myOutages$: Observable<Outage>;
+  myOutages$: Observable<Outage[]>;
 
   constructor(private outageService: OutagesService) { }
 

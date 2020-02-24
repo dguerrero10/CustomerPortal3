@@ -2,6 +2,14 @@
   display: none;
 }
 
+#tool-tip-field {
+  margin-bottom: 25px;
+}
+
+#payment-type {
+  margin-bottom: 8px;
+}
+
 @-webkit-keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -104,7 +112,7 @@ mat-list-item h3 {
 }
 
 #pay-btn {
-  margin-left: 25px;
+  margin-right: 25px;
   background: #28D466;
   color: white;
 }
@@ -121,6 +129,7 @@ mat-list-item h3 {
 .btn-container {
   display: flex;
   justify-content: flex-end;
+  margin-top: 15px;
 }
 
 @media (max-width: 770px) {
@@ -130,6 +139,14 @@ mat-list-item h3 {
 
   #bill-detail-mobile {
     display: block;
+  }
+
+  #tool-tip-field {
+    display: none;
+  }
+
+  #payment-type {
+    margin-bottom: 25px;
   }
 
   .form-field-col {
@@ -148,6 +165,11 @@ mat-list-item h3 {
     margin: 10px 0;
     width: 100%;
   }
+
+  #extension-btn {
+    margin-bottom: 25px;
+  }
+
   .btn-container {
     display: block;
     margin-top: 15px;

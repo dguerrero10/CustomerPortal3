@@ -41,6 +41,17 @@ export class OutagesService {
       date,
       '../../../../assets/images/avatar/lady-curly-hair.jpg'
     ),
+    new Outage (
+      Math.random().toString(),
+      Math.random().toString(),
+      'Planned Outage',
+      'El Monte & West Covina',
+      'Maintenance',
+      'Planned',
+      date,
+      '../../../../assets/images/My_Utilities.png',
+      true
+    )
   ];
   constructor() { }
 
@@ -48,9 +59,22 @@ export class OutagesService {
     return of(this._outages);
   }
 
-  getMyOutages() {
+  getCurrentOutages(): Observable<Outage[]> {
     return this.getOutages().pipe(
-      map((outages: Outage[]) => outages.find(outage => outage.id === '1'))
+      map((outages: Outage[]) => outages.filter(outage => outage.planned !== true))
     );
   }
+
+  getMyOutages(): Observable<Outage[]> {
+    return this.getOutages().pipe(
+      map((outages: Outage[]) => outages.filter(outage => outage.id === '1'))
+    );
+  }
+
+  getPlannedOutages(): Observable<Outage[]> {
+    return this.getOutages().pipe(
+      map((outages: Outage[]) => outages.filter(outage => outage.planned === true))
+    );
+  }
+
 }

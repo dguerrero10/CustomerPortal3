@@ -5,28 +5,40 @@
       <img [src]="logoImg" alt="">
     </mat-card-header>
     <div class="mat-h2">Sign Up | Personal Info</div>
-    <form>
+    <form [formGroup]="personalInfoFormControl" (ngSubmit)="createAccount()">
       <mat-form-field class="form-field">
         <mat-label>First Name</mat-label>
-        <input matInput required>
+        <input matInput required formControlName="firstName">
+        <mat-error *ngIf="!personalInfoFormControl.controls['firstName'].valid">
+          {{getErrors('firstName')}}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
         <mat-label>Last Name</mat-label>
-        <input matInput required>
+        <input matInput required formControlName="lastName">
+        <mat-error *ngIf="!personalInfoFormControl.controls['lastName'].valid">
+          {{getErrors('lastName')}}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
         <mat-label>Address</mat-label>
-        <input matInput required>
+        <input matInput required formControlName="address">
+        <mat-error *ngIf="!personalInfoFormControl.controls['address'].valid">
+          {{getErrors('address')}}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
         <mat-label>Phone Number</mat-label>
-        <input matInput required>
+        <input matInput required formControlName="phoneNum">
+        <mat-error *ngIf="!personalInfoFormControl.controls['phoneNum'].valid">
+          {{getErrors('phoneNum')}}
+        </mat-error>
       </mat-form-field>
 
-      <button class="form-btn" style="margin-top: 20px;" mat-raised-button (click)="createAccount()">Sign Up</button>
+      <button class="form-btn" style="margin-top: 20px;" mat-raised-button type="submit">Sign Up</button>
       <div class="back-to-link">
         <a routerLink="/login">Go to Login</a>
       </div>

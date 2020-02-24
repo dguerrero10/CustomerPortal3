@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Extension Request</h1>
+<form [formGroup]="extensionFormControl" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Choose Extension Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="extensionRequest">
+      <mat-error *ngIf="!extensionFormControl.controls['extensionRequest'].valid">
+        {{getError('extensionRequest')}}
+      </mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions style="justify-content: center;">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button type="submit" cdkFocusInitial id="request-btn">
+      Request
+    </button>
+  </div>
+</form>

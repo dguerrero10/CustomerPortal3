@@ -24,9 +24,9 @@ export class ChartCcfComponent implements OnInit {
 
       data: {
         datasets: [{
-          label: 'Usage (in CCF)',
-          backgroundColor: 'rgba(252, 226, 5, .5)',
-          borderColor: 'rgba(252, 226, 5, .7)',
+          label: 'CCF',
+          backgroundColor: 'rgba(211, 41, 84, .5)',
+          borderColor: 'rgba(211, 41, 84, .7)',
           fill: true,
           data: [.21, .12, .23, .22, .15, .11]
         }],

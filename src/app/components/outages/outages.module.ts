@@ -10,6 +10,7 @@ import { MyOutagesComponent } from './my-outages/my-outages.component';
 import { PlannedOutageComponent } from './planned-outage/planned-outage.component';
 import { ReportOutageModalComponent } from './report-outage-modal/report-outage-modal.component';
 import { OutageDetailsComponent } from './outage-details/outage-details.component';
+import { CurrentOutageModalDetailsComponent } from './current-outages/current-outage-modal-details/current-outage-modal-details.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { OutageDetailsComponent } from './outage-details/outage-details.componen
     MyOutagesComponent,
     PlannedOutageComponent,
     ReportOutageModalComponent,
-    OutageDetailsComponent
+    OutageDetailsComponent,
+    CurrentOutageModalDetailsComponent
   ],
   imports: [
     CommonModule,

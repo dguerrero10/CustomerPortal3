@@ -1,14 +1,19 @@
 <h1 mat-dialog-title style="text-align: center;">Update Email</h1>
-<div mat-dialog-content>
-  <p>Enter your new Email</p>
-  <mat-form-field style="width: 100%;">
-    <mat-label>Email</mat-label>
-    <input matInput [(ngModel)]="data.email">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions style="justify-content: center;">
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data.email" cdkFocusInitial id="update-btn">
-    Update
-  </button>
-</div>
+<form [formGroup]="accountEmailFormControl" (ngSubmit)="onUpdate()">
+  <div mat-dialog-content>
+    <p>Enter your new Email</p>
+    <mat-form-field style="width: 100%;">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="!accountEmailFormControl.controls['email'].valid">
+        {{getErrors('email')}}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions style="justify-content: center;">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button cdkFocusInitial id="update-btn" type="submit">
+      Update
+    </button>
+  </div>
+</form>

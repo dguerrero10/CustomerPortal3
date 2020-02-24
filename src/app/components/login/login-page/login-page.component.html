@@ -2,25 +2,28 @@
 <div class="form-container">
   <mat-card id="form-card" class="fadeInDown">
     <mat-card-header style="justify-content: center;">
-      <img [src]="logoImg" alt="">
+      <img [src]="logoImg" alt="" id="logo">
     </mat-card-header>
     <div class="mat-display-1" style="margin-bottom: 10px;">Login</div>
-    <form>
+    <form [formGroup]="loginFormControl" (ngSubmit)="onSubmit()">
       <mat-form-field  class="form-field">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" required>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="!loginFormControl.controls['email'].valid">
+          {{getErrors('email')}}
+        </mat-error>
       </mat-form-field>
-
       <mat-form-field class="form-field">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+        <mat-error *ngIf="!loginFormControl.controls['password'].valid">
+          {{getErrors('password')}}
+        </mat-error>
       </mat-form-field>
-      <mat-checkbox class="example-margin" [(ngModel)]="checked" name="remember-me">Remember me</mat-checkbox>
-      <button class="form-btn" style="margin-top: 20px;" mat-raised-button>Login</button>
+      <div style="margin: 10px 0;">
+        <mat-checkbox>Remember me</mat-checkbox>
+      </div>
+      <button class="form-btn" style="margin-top: 20px;" type="submit" mat-raised-button>Login</button>
       <button class="form-btn" id="sign-up" mat-raised-button routerLink="/sign-up">Sign Up</button>
     </form>
   </mat-card>

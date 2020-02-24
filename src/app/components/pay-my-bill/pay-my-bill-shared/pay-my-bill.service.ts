@@ -49,6 +49,13 @@ export class PayMyBillService {
     return of(this._bills);
   }
 
+  requestExtension(dueDate: Date) {
+    console.log(dueDate);
+    return this.getBills().pipe(
+      map((bills: Bill[]) => bills.find(bill => bill.dueDate === dueDate))
+    );
+  }
+
   getBill(id: string) {
     return this.getBills().pipe(
       map((bills: Bill[]) => bills.find(bill => bill.id === id))

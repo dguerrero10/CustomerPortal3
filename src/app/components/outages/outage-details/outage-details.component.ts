@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OutagesService } from '../shared/outages.service';
+import { Observable } from 'rxjs';
+import { Outage } from '../shared/outage.model';
 
 @Component({
   selector: 'app-outage-details',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./outage-details.component.scss']
 })
 export class OutageDetailsComponent implements OnInit {
+  plannedOutages$: Observable<Outage[]>;
 
-  constructor() { }
+  constructor(private outageService: OutagesService) { }
 
   ngOnInit() {
+
   }
 
 }

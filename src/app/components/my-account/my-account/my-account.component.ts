@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../../shared-services/navbar.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AccountEmailComponent } from './account-email/account-email.component';
@@ -6,19 +6,6 @@ import { AccountPhoneComponent } from './account-phone/account-phone.component';
 import { AccountPasswordComponent } from './account-password/account-password.component';
 import { MatSnackBar } from '@angular/material';
 import { AccountPhotoComponent } from './account-photo/account-photo.component';
-
-export interface EmailDialogData {
-  email: string;
-}
-export interface PhoneDialogData {
-  phone: string;
-}
-export interface PasswordDialogData {
-  password: string;
-}
-export interface PhotoDialogData {
-  photo: string;
-}
 
 @Component({
   selector: 'app-my-account',
@@ -45,26 +32,22 @@ export class MyAccountComponent implements OnInit {
   openEmailDialog(): void {
     const dialogRef = this.dialog.open(AccountEmailComponent, {
       width: '350px',
-      data: {email: this.email}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.email = result;
-      this.message = `Email updated to ${this.email}`;
+      this.message = 'Your email has been updated.';
       this.openSnackBar(this.message, this.action);
     });
   }
   openPhoneDialog(): void {
     const dialogRef = this.dialog.open(AccountPhoneComponent, {
       width: '350px',
-      data: {phone: this.phone}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.phone = result;
-      this.message = `Phone updated to ${this.phone}`;
+      this.message = 'Your Phone Number has been updated.';
       this.openSnackBar(this.message, this.action);
     });
   }
@@ -72,13 +55,11 @@ export class MyAccountComponent implements OnInit {
   openPasswordDialog(): void {
     const dialogRef = this.dialog.open(AccountPasswordComponent, {
       width: '350px',
-      data: {password: this.password}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.password = result;
-      this.message = `Password updated to ${this.password}`;
+      this.message = 'Your Password has been updated.';
       this.openSnackBar(this.message, this.action);
     });
   }
@@ -86,13 +67,11 @@ export class MyAccountComponent implements OnInit {
   openPhotoDialog(): void {
     const dialogRef = this.dialog.open(AccountPhotoComponent, {
       width: '350px',
-      data: {photo: this.photo}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.password = result;
-      this.message = 'Your profile photo was updated.';
+      this.message = 'Your Profile Photo has been updated.';
       this.openSnackBar(this.message, this.action);
     });
   }

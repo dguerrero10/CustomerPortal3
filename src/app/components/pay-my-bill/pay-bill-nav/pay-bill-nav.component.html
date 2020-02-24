@@ -1,8 +1,6 @@
 <mat-toolbar>
-  <span [routerLinkActive]="['active']" id="pay-bill">
-    <a routerLink='/pay-my-bill'>Pay Bill</a>
-  </span>
-  <span [routerLinkActive]="['active']">
-    <a  routerLink='/previous-payments'>Previous Payments</a>
-  </span>
+  <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style" style="margin-bottom: 15px;">
+    <mat-button-toggle routerLink='/pay-my-bill' value="Pay Bill" style="border-right: 1px solid #FAFAFC;">Pay Bill</mat-button-toggle>
+    <mat-button-toggle routerLink='/previous-payments' value="Previous Payments">Previous Payments</mat-button-toggle>
+  </mat-button-toggle-group>
 </mat-toolbar>

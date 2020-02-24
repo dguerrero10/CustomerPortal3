@@ -13,6 +13,70 @@
   <div class="row-container">
     <div class="col">
       <mat-card class="card fadeInLeft">
+        <mat-card-header class="card-header">
+          <mat-card-title *ngIf="notifications$ | async as notifications"
+          class="card-title" matBadge="{{notifications.length}}"
+          matBadgeOverlap="false"
+          matBadgeColor="warn"
+          matBadgePosition="above after">Notifications</mat-card-title>
+        </mat-card-header>
+        <div class="mat-list-container">
+          <mat-list>
+            <mat-list-item (click)="openNotification()" *ngFor="let notification of notifications$ | async">
+              <mat-icon matListIcon
+              [ngClass]="{'payment-made': notification.icon === 'check_circle',
+                        'planned-outage': notification.icon === 'build',
+                        'unplanned-outage': notification.icon === 'pin_drop',
+                        'upcoming-payment': notification.icon === 'alarm',
+                        'usage-summary': notification.icon === 'insert_chart'}">
+              {{notification.icon}}
+              </mat-icon>
+              <h3 matLine>{{notification.title}} </h3>
+              <p matLine>
+                <span>{{notification.message}}</span>
+              </p>
+              <p matLine>
+                <span>Sent: {{notification.date | date }}</span>
+              </p>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col">
+      <mat-card class="card fadeInRight">
+        <a routerLink="/usage">
+          <mat-card-header class="card-header" style="margin-bottom: 35px;">
+            <mat-card-title class="card-title">Usage</mat-card-title>
+          </mat-card-header>
+        </a>
+        <app-chart-dollars></app-chart-dollars>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row-container">
+    <div class="col">
+      <mat-card class="card fadeInUp">
+        <a routerLink="/outages">
+          <mat-card-header class="card-header">
+            <mat-card-title class="card-title" *ngIf="outages$ | async as outages"
+            class="card-title" matBadge="{{outages.length}}"
+            matBadgeOverlap="false"
+            matBadgeColor="warn"
+            matBadgePosition="above after">Outages</mat-card-title>
+          </mat-card-header>
+        </a>
+        <div id="outage-container">
+          <app-current-outages></app-current-outages>
+        </div>
+        <div style="display: flex; justify-content: center;">
+          <button id="report-btn" routerLink="/outages" mat-raised-button>Report Outage</button>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col">
+      <mat-card class="card fadeInUp">
         <a routerLink="/pay-my-bill">
           <mat-card-header class="card-header">
             <mat-card-title class="card-title">
@@ -68,70 +132,7 @@
           </div>
         </div>
       </mat-card>
-    </div>
-    <div class="col">
-      <mat-card class="card fadeInRight">
-        <a routerLink="/usage">
-          <mat-card-header class="card-header" style="margin-bottom: 35px;">
-            <mat-card-title class="card-title">Usage</mat-card-title>
-          </mat-card-header>
-        </a>
-        <app-chart-dollars></app-chart-dollars>
-      </mat-card>
-    </div>
-  </div>
-  <div class="row-container">
-    <div class="col">
-      <mat-card class="card fadeInUp">
-        <a routerLink="/outages">
-          <mat-card-header class="card-header">
-            <mat-card-title class="card-title" *ngIf="outages$ | async as outages"
-            class="card-title" matBadge="{{outages.length}}"
-            matBadgeOverlap="false"
-            matBadgeColor="warn"
-            matBadgePosition="above after">Outages</mat-card-title>
-          </mat-card-header>
-        </a>
-        <div id="outage-container">
-          <app-current-outages></app-current-outages>
-        </div>
-        <div style="display: flex; justify-content: center;">
-          <button id="report-btn" routerLink="/outages" mat-raised-button>Report Outage</button>
-        </div>
-      </mat-card>
-    </div>
-    <div class="col">
-      <mat-card class="card fadeInUp">
-        <mat-card-header class="card-header">
-          <mat-card-title *ngIf="notifications$ | async as notifications"
-          class="card-title" matBadge="{{notifications.length}}"
-          matBadgeOverlap="false"
-          matBadgeColor="warn"
-          matBadgePosition="above after">Notifications</mat-card-title>
-        </mat-card-header>
-        <div class="mat-list-container">
-          <mat-list>
-            <mat-list-item (click)="openNotification()" *ngFor="let notification of notifications$ | async">
-              <mat-icon matListIcon
-              [ngClass]="{'payment-made': notification.icon === 'check_circle',
-                        'planned-outage': notification.icon === 'build',
-                        'unplanned-outage': notification.icon === 'pin_drop',
-                        'upcoming-payment': notification.icon === 'alarm',
-                        'usage-summary': notification.icon === 'insert_chart'}">
-              {{notification.icon}}
-              </mat-icon>
-              <h3 matLine>{{notification.title}} </h3>
-              <p matLine>
-                <span>{{notification.message}}</span>
-              </p>
-              <p matLine>
-                <span>Sent: {{notification.date | date }}</span>
-              </p>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-          </mat-list>
-        </div>
-      </mat-card>
+
     </div>
   </div>
   <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="line-scale-party">

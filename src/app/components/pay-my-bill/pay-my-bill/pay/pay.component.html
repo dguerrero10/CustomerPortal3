@@ -5,10 +5,10 @@
   <div class="row-container">
     <div class="col-list fadeInLeft" id="bill-detail-desktop">
       <mat-list *ngIf="bill$ | async as bill">
-        <div class="mobile">
+        <div>
           <h3 class="mat-h2 sect-header">Current Bill</h3>
         </div>
-        <mat-divider class="mobile"></mat-divider>
+        <mat-divider></mat-divider>
         <mat-list-item>
           <p matLine>Bill Date</p>
           <h3 matLine>{{bill.billDate | date}}</h3>
@@ -37,9 +37,16 @@
       </mat-list>
     </div>
     <div class="form-container fadeInUp">
-      <form class="pay-bill-form">
-        <div class="mat-h1" style="margin-bottom: 25px;">
+      <form class="pay-bill-form" [formGroup]="payBillFormControl" (ngSubmit)="onSubmit()">
+        <div class="mat-h1" id="payment-type">
           Payment Type
+        </div>
+        <div class="mat-h4" id="tool-tip-field">
+          <i class="material-icons"
+            matTooltip="The disabled fields are provided by the Utility Company and cannot be changed.">
+            info
+          </i>
+          Why are some fields disabled?
         </div>
         <mat-form-field class="form-field">
           <mat-label>Account Number</mat-label>
@@ -68,27 +75,41 @@
 
         <mat-form-field class="form-field-col">
           <mat-label>Name On Card</mat-label>
-          <input matInput>
+          <input matInput formControlName="nameOnCard">
+          <mat-error *ngIf="!payBillFormControl.controls['nameOnCard'].valid">
+           {{getError('nameOnCard')}}
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="form-field-col">
           <mat-label>Expiration Date</mat-label>
-          <input matInput>
+          <input matInput formControlName="expirationDate">
+          <mat-error *ngIf="!payBillFormControl.controls['expirationDate'].valid">
+            {{getError('expirationDate')}}
+           </mat-error>
         </mat-form-field>
 
         <mat-form-field class="form-field-col">
           <mat-label>Card Number</mat-label>
-          <input matInput>
+          <input matInput formControlName="cardNumber">
+          <mat-error *ngIf="!payBillFormControl.controls['cardNumber'].valid">
+            {{getError('cardNumber')}}
+           </mat-error>
         </mat-form-field>
 
         <mat-form-field class="form-field-col">
           <mat-label>CSV</mat-label>
-          <input matInput>
+          <input matInput formControlName="CSV">
+          <mat-error *ngIf="!payBillFormControl.controls['CSV'].valid">
+            {{getError('CSV')}}
+           </mat-error>
         </mat-form-field>
-        <mat-checkbox (click)="enrollInAutoPay()">Enroll in Auto Pay</mat-checkbox>
+        <div style="margin-top: 10px;">
+          <mat-checkbox (click)="enrollInAutoPay()">Enroll in Auto Pay</mat-checkbox>
+        </div>
         <div class="btn-container">
-          <button mat-raised-button id="extension-btn">Request Extension</button>
-          <button mat-raised-button id="pay-btn">Pay Bill</button>
+          <button mat-raised-button id="pay-btn" type="submit">Pay Bill</button>
+          <button mat-raised-button id="extension-btn" (click)="requestExtension()">Request Extension</button>
         </div>
       </form>
     </div>

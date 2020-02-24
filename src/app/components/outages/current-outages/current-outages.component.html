@@ -9,6 +9,12 @@
     'progress-status': outage.status === 'Working On'}">
     Status: {{outage.status}}</h3>
     <h3 matLine style="font-weight: bold;">{{outage.comment}}</h3>
+    <p matLine><span
+      (click)="openCurrentOutageDetailsDialog()"
+      style="text-decoration: none; color:#0056B3; cursor: pointer;">
+      Click for more details
+    </span>
+    </p>
     <p matLine>
       <span> {{outage.date | date:'medium'}} </span>
     </p>

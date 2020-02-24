@@ -11,6 +11,7 @@ import { BillDetailMobileComponent } from './previous-payments/bill-detail-mobil
 import { PayBillNavComponent } from './pay-bill-nav/pay-bill-nav.component';
 import { AutoPayEnrollComponent } from './pay-my-bill/pay/auto-pay-enroll/auto-pay-enroll.component';
 import { PayDetailMobileComponent } from './pay-my-bill/pay/pay-detail-mobile/pay-detail-mobile.component';
+import { RequestExtensionComponent } from './pay-my-bill/pay/request-extension/request-extension.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PayDetailMobileComponent } from './pay-my-bill/pay/pay-detail-mobile/pa
     BillDetailMobileComponent,
     PayBillNavComponent,
     AutoPayEnrollComponent,
-    PayDetailMobileComponent
+    PayDetailMobileComponent,
+    RequestExtensionComponent
   ],
   imports: [
     CommonModule,

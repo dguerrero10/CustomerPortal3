@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { EmailDialogData } from '../my-account.component';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-account-email',
@@ -8,16 +8,43 @@ import { EmailDialogData } from '../my-account.component';
   styleUrls: ['./account-email.component.scss']
 })
 export class AccountEmailComponent implements OnInit {
-  message = 'Your email has been updated!';
+  accountEmailFormControl: FormGroup;
 
   constructor(public dialogRef: MatDialogRef<AccountEmailComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: EmailDialogData,
+              private fb: FormBuilder
               ) { }
 
   ngOnInit() {
+    this.createForm();
+  }
+
+  createForm() {
+    this.accountEmailFormControl = this.fb.group({
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
+
+  getErrors(el) {
+    switch (el) {
+      case 'email':
+      if (this.accountEmailFormControl.get('email').hasError('required')) {
+        return 'This field is required.';
+      }
+      if (this.accountEmailFormControl.get('email').hasError('email')) {
+        return 'Please provide a valid Email.';
+      }
+      break;
+    }
   }
 
   onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  onUpdate() {
+    if (this.accountEmailFormControl.invalid) {
+      return;
+    }
     this.dialogRef.close();
   }
 

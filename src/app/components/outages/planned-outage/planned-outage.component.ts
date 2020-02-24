@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { OutageDetailsComponent } from '../outage-details/outage-details.component';
+import { Observable } from 'rxjs';
+import { Outage } from '../shared/outage.model';
+import { OutagesService } from '../shared/outages.service';
 
 @Component({
   selector: 'app-planned-outage',
@@ -8,12 +11,13 @@ import { OutageDetailsComponent } from '../outage-details/outage-details.compone
   styleUrls: ['./planned-outage.component.scss']
 })
 export class PlannedOutageComponent implements OnInit {
-  date =  new Date();
-  imgUrl = '../../../../assets/images/My_Utilities.png';
+  plannedOutages$: Observable<Outage[]>;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private outageService: OutagesService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
+  this.plannedOutages$ = this.outageService.getPlannedOutages();
   }
 
   openOutageDetailsDialog(): void {

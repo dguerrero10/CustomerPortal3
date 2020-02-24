@@ -5,23 +5,12 @@ mat-toolbar {
   display: flex;
 }
 
-mat-toolbar a {
-  text-decoration: none;
-  justify-content: space-between;
-  padding: 15px 0;
-  margin: 20px;
-  color: #11293e;
-  border-bottom: 2px solid transparent;
+mat-button-toggle {
+  background: #126BC5;
+  color: white;
   font-size: 15px;
+  width: 200px;
 
-}
-
-.active {
-  border-bottom: 2px solid #11293e;
-}
-
-#pay-bill {
-  margin-right: 25px;
 }
 
 @media (max-width: 566px) {

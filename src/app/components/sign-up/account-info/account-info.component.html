@@ -5,37 +5,43 @@
       <img [src]="logoImg" alt="">
     </mat-card-header>
     <div class="mat-h2">Sign Up | Account Info</div>
-    <form>
+
+    <form [formGroup]="accountInfoFormControl" (ngSubmit)="onSubmit()">
       <mat-form-field class="form-field">
-        <mat-label>Enter your Account Number</mat-label>
-        <input matInput placeholder="GH7223213131" required>
+        <mat-label>Account Number</mat-label>
+        <input matInput placeholder="GH7223213131" required formControlName="accountNum">
+        <mat-error *ngIf="!accountInfoFormControl.controls['accountNum'].valid">
+          {{getErrors('accountNum')}}
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="form-field">
-        <mat-label>Enter your Email</mat-label>
-        <input matInput placeholder="pat@example.com" required>
+        <mat-label>Email</mat-label>
+        <input matInput required formControlName="email">
+        <mat-error *ngIf="!accountInfoFormControl.controls['email'].valid">
+          {{getErrors('email')}}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
-        <mat-label>Create Password </mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
+        <mat-label>Create Password</mat-label>
+        <input matInput required formControlName="createPassword" type="password">
+        <mat-error *ngIf="!accountInfoFormControl.controls['createPassword'].valid">
+          {{getErrors('createPassword')}}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field">
         <mat-label>Confirm Password </mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
+        <input matInput required formControlName="confirmPassword" type="password">
+        <mat-error *ngIf="!accountInfoFormControl.controls['confirmPassword'].valid">
+          {{getErrors('confirmPassword')}}
+        </mat-error>
       </mat-form-field>
-      <button class="form-btn" style="margin-top: 20px;" mat-raised-button routerLink="./personal-info">Next</button>
+      <button class="form-btn" style="margin-top: 20px;" mat-raised-button type="submit">Next</button>
       <div class="back-to-link">
         <a routerLink="/login">Go to Login</a>
       </div>
     </form>
+
   </mat-card>
 </div>

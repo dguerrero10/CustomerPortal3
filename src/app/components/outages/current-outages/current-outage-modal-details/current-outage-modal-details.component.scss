@@ -1,0 +1,47 @@
+.mat-dialog-title {
+  text-align: center;
+  text-decoration: underline;
+}
+
+#img-container {
+  display: flex;
+  justify-content: center;
+}
+
+#img-container img {
+  border-radius: 50%;
+}
+
+.mat-list-item {
+  margin-left: -16px;
+}
+
+.pending-status {
+  font-weight: bold;
+  color: #FECD80 !important;
+}
+
+.progress-status {
+  font-weight: bold;
+  color: rgb(77, 170, 77) !important;
+}
+
+.waiting-status {
+  font-weight: bold;
+  color: rgb(211, 41, 84) !important;
+}
+
+.mat-line {
+  padding: 4px 0 !important;
+  font-size: 1em !important;
+}
+
+img {
+  width: 75px !important;
+  height: 75px !important;
+}
+
+.mat-raised-button {
+  background: #26374D;
+  color: white;
+}

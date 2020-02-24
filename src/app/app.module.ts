@@ -26,6 +26,9 @@ import { ReportOutageModalComponent } from './components/outages/report-outage-m
 import { OutageDetailsComponent } from './components/outages/outage-details/outage-details.component';
 import { NotificationComponent } from './components/home/notification/notification.component';
 import { AutoPayEnrollComponent } from './components/pay-my-bill/pay-my-bill/pay/auto-pay-enroll/auto-pay-enroll.component';
+import { RequestExtensionComponent } from './components/pay-my-bill/pay-my-bill/pay/request-extension/request-extension.component';
+import { CurrentOutageModalDetailsComponent }
+from './components/outages/current-outages/current-outage-modal-details/current-outage-modal-details.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,9 @@ import { AutoPayEnrollComponent } from './components/pay-my-bill/pay-my-bill/pay
   bootstrap: [AppComponent],
   entryComponents: [
    NotificationComponent,
+   CurrentOutageModalDetailsComponent,
    OutageDetailsComponent,
+   RequestExtensionComponent,
    AutoPayEnrollComponent,
    ReportOutageModalComponent,
    AccountEmailComponent,

@@ -1,9 +1,9 @@
 <mat-sidenav-container class="sidenav-container" style="background: white;">
-  <mat-sidenav  #drawer class="sidenav"
+  <mat-sidenav #drawer *ngIf="navbarService.visible" class="sidenav"
     fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar style="color: white;">Menu</mat-toolbar>
-    <mat-nav-list *ngIf="navbarService.visible">
+    <mat-nav-list >
       <a mat-list-item (click)="drawer.close()" routerLink="/home">
         <mat-icon class="icon">home</mat-icon>
         Home
@@ -24,7 +24,7 @@
         <mat-icon class="icon">settings</mat-icon>
         My Account
       </a>
-      <a mat-list-item (click)="drawer.close()" routerLink="/login">
+      <a mat-list-item (click)="drawer.close()" (click)="logout()">
         <mat-icon class="icon">logout</mat-icon>
         Logout
       </a>
@@ -69,7 +69,7 @@
             My Account
           </button>
         </a>
-        <a routerLink="/login" class="nav-list-item">
+        <a (click)="logout()" class="nav-list-item">
           <button mat-button>
             <mat-icon class="icon">logout</mat-icon>
             Logout

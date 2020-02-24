@@ -1,18 +1,24 @@
-<mat-list class="fadeInLeft">
-  <mat-list-item>
-    <img matListAvatar [src]="imgUrl" alt="...">
-    <h3 matLine style="font-weight: bold; text-decoration: underline;">Maintenance</h3>
-    <h3 matLine style="color:rgb(233, 157, 76); font-weight: bold;">Location: San Gabriel Area</h3>
-    <h3 matLine style="font-weight: bold;">Status: Planned</h3>
-    <p matLine><span
-      (click)="openOutageDetailsDialog()"
-      style="text-decoration: none; color:#0056B3; cursor: pointer;">
-      Click for Details
-    </span>
-    </p>
-    <p matLine>
-      <span>Published: {{date | date}}</span>
-    </p>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-list>
+<div class="list-container">
+  <mat-list class="fadeInLeft">
+    <mat-list-item *ngFor="let outage of plannedOutages$ | async">
+      <img matListAvatar [src]="outage.imgUrl" alt="...">
+      <h3 matLine style="font-weight: bold; text-decoration: underline;">{{outage.type}}</h3>
+      <h3 matLine style="color:rgb(233, 157, 76); font-weight: bold;">Location: {{outage.location}}</h3>
+      <h3 matLine style="font-weight: bold;" [ngClass]="{'waiting-status': outage.status === 'Waiting On Utility Response',
+        'pending-status': outage.status === 'Being Processed',
+        'progress-status': outage.status === 'Working On',
+        'planned-status': outage.status === 'Planned'}">
+        Status: {{outage.status}}</h3>
+      <h3 matLine style="font-weight: bold;">{{outage.comment}}</h3>
+      <p matLine><span
+          style="text-decoration: none; color:#0056B3; cursor: pointer;">
+          Click for more details
+        </span>
+      </p>
+      <p matLine>
+        <span> {{outage.date | date:'medium'}} </span>
+      </p>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>
