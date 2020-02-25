@@ -29,6 +29,7 @@ import { AutoPayEnrollComponent } from './components/pay-my-bill/pay-my-bill/pay
 import { RequestExtensionComponent } from './components/pay-my-bill/pay-my-bill/pay/request-extension/request-extension.component';
 import { CurrentOutageModalDetailsComponent }
 from './components/outages/current-outages/current-outage-modal-details/current-outage-modal-details.component';
+import { PaperlessBillingEnrollComponent } from './components/pay-my-bill/pay-my-bill/pay/paperless-billing-enroll/paperless-billing-enroll.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ from './components/outages/current-outages/current-outage-modal-details/current-
    OutageDetailsComponent,
    RequestExtensionComponent,
    AutoPayEnrollComponent,
+   PaperlessBillingEnrollComponent,
    ReportOutageModalComponent,
    AccountEmailComponent,
    AccountPasswordComponent,

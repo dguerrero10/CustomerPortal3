@@ -12,6 +12,7 @@ import { PayBillNavComponent } from './pay-bill-nav/pay-bill-nav.component';
 import { AutoPayEnrollComponent } from './pay-my-bill/pay/auto-pay-enroll/auto-pay-enroll.component';
 import { PayDetailMobileComponent } from './pay-my-bill/pay/pay-detail-mobile/pay-detail-mobile.component';
 import { RequestExtensionComponent } from './pay-my-bill/pay/request-extension/request-extension.component';
+import { PaperlessBillingEnrollComponent } from './pay-my-bill/pay/paperless-billing-enroll/paperless-billing-enroll.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RequestExtensionComponent } from './pay-my-bill/pay/request-extension/r
     PayBillNavComponent,
     AutoPayEnrollComponent,
     PayDetailMobileComponent,
-    RequestExtensionComponent
+    RequestExtensionComponent,
+    PaperlessBillingEnrollComponent
   ],
   imports: [
     CommonModule,

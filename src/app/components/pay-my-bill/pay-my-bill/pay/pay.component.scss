@@ -10,6 +10,46 @@
   margin-bottom: 8px;
 }
 
+#paperless-billing, #paperless-billing-enrolled, 
+#auto-pay, #auto-pay-enrolled {
+  margin-top: 15px;
+  cursor: pointer;
+  color: #126BC5;
+}
+
+#paperless-billing-enrolled, #auto-pay-enrolled {
+  cursor: default;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: .7s;
+  animation-duration: .7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
 @-webkit-keyframes fadeInLeft {
   from {
     opacity: 0;

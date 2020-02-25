@@ -1,9 +1,9 @@
 <mat-sidenav-container class="sidenav-container" style="background: white;">
-  <mat-sidenav #drawer *ngIf="navbarService.visible" class="sidenav"
+  <mat-sidenav #drawer class="sidenav"
     fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar style="color: white;">Menu</mat-toolbar>
-    <mat-nav-list >
+    <mat-nav-list *ngIf="navbarService.visible">
       <a mat-list-item (click)="drawer.close()" routerLink="/home">
         <mat-icon class="icon">home</mat-icon>
         Home

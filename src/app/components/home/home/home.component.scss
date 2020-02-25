@@ -35,8 +35,6 @@ img {
   flex-direction: row;
   justify-content: center;
   margin: 25px;
-  width: 99%;
-  height: 99%;
 }
 
 .col {
@@ -99,8 +97,6 @@ img {
   -webkit-flex-direction: row;
   flex-direction: row;
   padding: 0;
-  width: 99%;
-  height: 99%;
 }
 
 #bill-detail-header {
@@ -269,25 +265,7 @@ img {
 
 @media (max-width: 1500px) {
   .card {
-    // height: 43vh;
-  }
-}
-
-@media (max-height: 825px) and (max-width: 1575px) {
-  .card {
-    // height: 55vh !important;
-  }
-  .card-header {
-    margin-bottom: 5px !important;
-  }
-}
-
-@media (max-height: 692px) and (max-width: 1575px) {
-  .card {
-    // height: 65vh !important;
-  }
-  .card-header {
-    margin-bottom: 5px !important;
+    height: 43vh;
   }
 }
 

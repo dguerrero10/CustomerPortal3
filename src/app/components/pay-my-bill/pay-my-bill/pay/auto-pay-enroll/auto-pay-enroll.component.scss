@@ -1,8 +1,14 @@
-.mat-dialog-title {
-  text-decoration: underline;
-}
 
-#agree-btn {
-  background: #26374D;
-  color: white;
-}
+ .form-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pay-bill-form, .form-field {
+    width: 100%;
+  }
+  
+  .form-field-col {
+    width: 50%;
+  }

@@ -8,9 +8,18 @@ import { MatSnackBar } from '@angular/material';
 import { AutoPayEnrollComponent } from './auto-pay-enroll/auto-pay-enroll.component';
 import { RequestExtensionComponent } from './request-extension/request-extension.component';
 import { NavbarService } from 'src/app/components/shared-services/navbar.service';
+import { PaperlessBillingEnrollComponent } from './paperless-billing-enroll/paperless-billing-enroll.component';
 
 export interface ExtensionDialogData {
   extensionDate: Date;
+}
+
+export interface PaperlessBillingDialogData {
+  enrolledInPaperless: boolean;
+}
+
+export interface AutoBillingDialogData {
+  enrolledInAutoPay: boolean;
 }
 
 @Component({
@@ -22,6 +31,8 @@ export class PayComponent implements OnInit {
   bill$: Observable<Bill>;
   extensionDate: Date;
   message: string;
+  enrolledInPaperless: false;
+  enrolledInAutoPay: false;
 
   action = 'Dismiss';
 
@@ -82,6 +93,7 @@ export class PayComponent implements OnInit {
     console.log('success');
   }
 
+  // Request extension dialog
   requestExtension(): void {
     const dialogRef = this.dialog.open(RequestExtensionComponent, {
       width: '350px',
@@ -101,11 +113,29 @@ export class PayComponent implements OnInit {
       duration: 3000,
     });
   }
+
+  // Enroll in auto pay dialog
   enrollInAutoPay(): void {
-    const dialogRef = this.dialog.open(AutoPayEnrollComponent);
+    const dialogRef = this.dialog.open(AutoPayEnrollComponent, {
+      data: {enrolled: this.enrolledInAutoPay}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`The dialog was closed ${result}`);
+      this.enrolledInAutoPay = result;
+    });
+  }
+
+// Enroll in paperless dialog 
+// Set enrolledInPaperless to true on accepting 
+  enrollInPaperless(): void {
+    const dialogRef = this.dialog.open(PaperlessBillingEnrollComponent, {
+      data: {enrolled: this.enrolledInPaperless}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`The dialog was closed ${result}`);
+      this.enrolledInPaperless = result;
     });
   }
 }
