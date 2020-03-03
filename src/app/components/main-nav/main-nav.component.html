@@ -77,6 +77,10 @@
         </a>
       </ul>
     </mat-toolbar>
+    <mat-progress-bar *ngIf="loading"
+                      style="padding: 3px; margin-top: -3px"
+                      mode="indeterminate">
+    </mat-progress-bar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

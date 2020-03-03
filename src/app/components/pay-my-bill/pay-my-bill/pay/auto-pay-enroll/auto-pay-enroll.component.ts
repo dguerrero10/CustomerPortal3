@@ -26,12 +26,12 @@ export class AutoPayEnrollComponent implements OnInit {
     this.autoPayFormControl = this.fb.group({
       bankName: ['', [Validators.required]],
       accountBankNum: ['', [Validators.required, Validators.pattern('[0-9]{0,10}')]],
-      routingNum: ['', [Validators.required, 
-                        Validators.minLength(9), 
+      routingNum: ['', [Validators.required,
+                        Validators.minLength(9),
                         Validators.maxLength(9),
                         Validators.pattern('[0-9]{0,10}')]],
       signature: ['', [Validators.required]]
-    });  
+    });
   }
 
   getErrors(el) {
@@ -78,7 +78,7 @@ export class AutoPayEnrollComponent implements OnInit {
     if (this.autoPayFormControl.invalid) {
       return;
     }
-    this.dialogRef.close()
+    this.dialogRef.close();
     this.data.enrolledInAutoPay = true;
-  } 
+  }
 }
