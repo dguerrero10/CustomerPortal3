@@ -1,0 +1,44 @@
+<div class="form-container">
+    <div class="mat-h1">Stop Service</div>
+    <form>
+        <mat-form-field class="form-field">
+            <mat-label>Email</mat-label>
+            <input matInput required>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Account Number</mat-label>
+            <input matInput required>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Full Name</mat-label>
+            <input matInput required>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Address</mat-label>
+            <input matInput required>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>City</mat-label>
+            <input matInput required>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Zip Code</mat-label>
+            <input matInput required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Favorite food</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Scheduled Date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </form>
+    <button class="submit-btn" mat-raised-button>Submit</button>
+</div>

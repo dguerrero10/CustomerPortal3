@@ -215,3 +215,9 @@ mat-list-item h3 {
     margin-top: 15px;
   }
 }
+
+@media (max-height: 600px) {
+  #last-divider {
+    display: none;
+  }
+}

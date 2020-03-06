@@ -1,0 +1,73 @@
+<h1 mat-dialog-title>Service Request</h1>
+<div mat-dialog-content>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="serviceRequestFormControl" (ngSubmit)="onSubmit(typeOfRequest.value)">
+        <ng-template matStepLabel>Select Type of Service Request</ng-template>
+        <mat-form-field>
+          <mat-label>Type of Request</mat-label>
+          <mat-select formControlName="typeOfRequest" [(value)]="selected"
+            #typeOfRequest>
+            <mat-option *ngFor="let request of serviceRequest" [value]="request.value">
+              {{request.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!serviceRequestFormControl.controls['typeOfRequest'].valid">
+            {{getErrors('typeOfRequest')}}
+          </mat-error>
+        </mat-form-field>
+        <div style="margin-top: 15px;">
+          <button mat-button (click)="onNoClick()">Cancel</button>
+          <button id="next-btn" type="submit" mat-raised-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <ng-template matStepLabel>Fill Out Service Request</ng-template>
+        <ng-container *ngIf="serviceRequestType[0].selected">
+          <button mat-button matStepperPrevious>
+            <i class="material-icons">
+              arrow_back
+            </i>
+            Back
+          </button>
+          <app-start-service-form></app-start-service-form>
+        </ng-container>
+        <ng-container *ngIf="serviceRequestType[1].selected">
+          <button mat-button matStepperPrevious>
+            <i class="material-icons">
+              arrow_back
+            </i>
+            Back
+          </button>
+          <app-stop-service-form></app-stop-service-form>
+        </ng-container>
+        <ng-container *ngIf="serviceRequestType[2].selected">
+          <button mat-button matStepperPrevious>
+            <i class="material-icons">
+              arrow_back
+            </i>
+            Back
+          </button>
+          <app-service-investigation-form></app-service-investigation-form>
+        </ng-container>
+        <ng-container *ngIf="serviceRequestType[3].selected">
+          <button mat-button matStepperPrevious>
+            <i class="material-icons">
+              arrow_back
+            </i>
+            Back
+          </button>
+          <app-account-inquiries-form></app-account-inquiries-form>
+        </ng-container>
+        <ng-container *ngIf="serviceRequestType[4].selected">
+          <button mat-button matStepperPrevious>
+            <i class="material-icons">
+              arrow_back
+            </i>
+            Back
+          </button>
+          <app-update-customer-info></app-update-customer-info>
+        </ng-container>
+    </mat-step>
+  </mat-horizontal-stepper>

@@ -113,3 +113,20 @@ img {
   }
 }
 
+@media (max-height: 600px) {
+  #form-card {
+    margin-top: 5%;
+  }
+
+  .mat-h2 {
+    text-align: center;
+  }
+
+  img {
+    display: none;
+  }
+
+  .form-container {
+    align-items: flex-start;
+  }
+}

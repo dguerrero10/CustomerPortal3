@@ -114,3 +114,21 @@ h2 {
   }
 }
 
+@media (max-height: 600px) {
+  #form-card {
+    margin-top: 5%;
+  }
+
+  img {
+    display: none;
+  }
+
+  .mat-h2 {
+    text-align: center;
+  }
+
+  .form-container {
+    align-items: flex-start;
+  }
+}
+
