@@ -16,8 +16,6 @@ import { StartServiceFormComponent } from './outages/service-request-modal/start
 import { StopServiceFormComponent } from './outages/service-request-modal/stop-service-form/stop-service-form.component';
 import { ServiceInvestigationFormComponent } from './outages/service-request-modal/service-investigation-form/service-investigation-form.component';
 import { AccountInquiriesFormComponent } from './outages/service-request-modal/account-inquiries-form/account-inquiries-form.component';
-import { UpdateCustomerInfoComponent } from './outages/service-request-modal/update-customer-info/update-customer-info.component';
-
 
 @NgModule({
   declarations: [
@@ -32,8 +30,7 @@ import { UpdateCustomerInfoComponent } from './outages/service-request-modal/upd
     StartServiceFormComponent,
     StopServiceFormComponent,
     ServiceInvestigationFormComponent,
-    AccountInquiriesFormComponent,
-    UpdateCustomerInfoComponent
+    AccountInquiriesFormComponent
   ],
   imports: [
     CommonModule,

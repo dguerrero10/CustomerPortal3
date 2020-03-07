@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,6 +51,7 @@ import { ServiceRequestModalComponent } from './components/outages/outages/servi
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    ScrollToModule.forRoot()
   ],
   providers: [
    { provide: LocationStrategy, useClass: HashLocationStrategy },

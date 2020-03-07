@@ -1,44 +1,50 @@
 <div class="form-container">
     <div class="mat-h1">Stop Service</div>
-    <form>
+    <form [formGroup]="stopServiceFormControl" id="invalid-form" (ngSubmit)="onSubmit()">
         <mat-form-field class="form-field">
-            <mat-label>Email</mat-label>
-            <input matInput required>
-        </mat-form-field>
-        <mat-form-field class="form-field">
-            <mat-label>Account Number</mat-label>
-            <input matInput required>
-        </mat-form-field>
-        <mat-form-field class="form-field">
-            <mat-label>Full Name</mat-label>
-            <input matInput required>
-        </mat-form-field>
-        <mat-form-field class="form-field">
-            <mat-label>Address</mat-label>
-            <input matInput required>
-        </mat-form-field>
-        <mat-form-field class="form-field">
-            <mat-label>City</mat-label>
-            <input matInput required>
-        </mat-form-field>
-        <mat-form-field class="form-field">
-            <mat-label>Zip Code</mat-label>
-            <input matInput required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                    {{food.viewValue}}
+            <mat-label>Service Type</mat-label>
+            <mat-select formControlName="serviceType" required>
+                <mat-option *ngFor="let service of services" [value]="service.value">
+                    {{service.viewValue}}
                 </mat-option>
             </mat-select>
+            <mat-error *ngIf="!stopServiceFormControl.controls['serviceType'].valid">
+                {{getErrors('serviceType')}}
+            </mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="form-field">
             <mat-label>Scheduled Date</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <input matInput [matDatepicker]="picker" formControlName="scheduledDate" required>
+            <mat-error *ngIf="!stopServiceFormControl.controls['scheduledDate'].valid">
+                {{getErrors('scheduledDate')}}
+            </mat-error>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Email</mat-label>
+            <input matInput disabled value="lisaA@gmail.com">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Account Number</mat-label>
+            <input matInput disabled value="GH8722617812">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Full Name</mat-label>
+            <input matInput disabled value="Lisa Ackley">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Address</mat-label>
+            <input matInput disabled value="1234 Hope St.">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>City</mat-label>
+            <input matInput disabled value="San Gabriel">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Zip Code</mat-label>
+            <input matInput disabled value="91775">
+        </mat-form-field>
+        <button class="submit-btn" mat-raised-button>Submit</button>
     </form>
-    <button class="submit-btn" mat-raised-button>Submit</button>
 </div>

@@ -28,8 +28,7 @@ export class ServiceRequestModalComponent implements OnInit {
     {value: 'startService', viewValue: 'Start Service'},
     {value: 'stopService', viewValue: 'Stop Service'},
     {value: 'serviceInvestigation', viewValue: 'Service Investigation'},
-    {value: 'accountInquiries', viewValue: 'Account Inquiries'},
-    {value: 'updateCustomerInfo', viewValue: 'Update Customer Information'},
+    {value: 'accountInquiries', viewValue: 'Account Inquiries'}
   ];
 
   serviceRequestType: ServiceRequestType[] = [
@@ -37,7 +36,6 @@ export class ServiceRequestModalComponent implements OnInit {
     {type: 'stopService', selected: false},
     {type: 'serviceInvestigation', selected: false},
     {type: 'accountInquiries', selected: false},
-    {type: 'updateCustomerInfo', selected: false}
   ];
 
   // Initial Value
@@ -90,12 +88,6 @@ export class ServiceRequestModalComponent implements OnInit {
         element.selected = false;
     });
       this.serviceRequestType[3].selected = true;
-    }
-    else if (typeOfRequest === 'updateCustomerInfo') {
-      this.serviceRequestType.forEach((element) => {
-        element.selected = false;
-    });
-      this.serviceRequestType[4].selected = true;
     }
     else return
   }
