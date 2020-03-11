@@ -73,7 +73,7 @@
                 <input matInput disabled value="91775">
             </mat-form-field>
 
-            <mat-form-field class="form-field-col">
+            <mat-form-field class="form-field-col" id="invalid-form">
                 <mat-label>Financial Institution (bank, credit union, etc.)</mat-label>
                 <input matInput formControlName="bankName">
                 <mat-error *ngIf="!autoPayFormControl.controls['bankName'].valid">

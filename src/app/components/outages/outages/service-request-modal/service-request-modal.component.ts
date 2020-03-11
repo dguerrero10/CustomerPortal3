@@ -19,6 +19,7 @@ interface ServiceRequestType {
 })
 export class ServiceRequestModalComponent implements OnInit {
   serviceRequestFormControl: FormGroup;
+  isLinear = false;
 
   constructor(public dialogRef: MatDialogRef<ServiceRequestModalComponent>,
               private fb: FormBuilder,
@@ -95,9 +96,4 @@ export class ServiceRequestModalComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
-  test() {
-    console.log("hello")
-  }
-
 }

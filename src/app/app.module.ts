@@ -32,6 +32,7 @@ import { CurrentOutageModalDetailsComponent }
 from './components/outages/current-outages/current-outage-modal-details/current-outage-modal-details.component';
 import { PaperlessBillingEnrollComponent } from './components/pay-my-bill/pay-my-bill/pay/paperless-billing-enroll/paperless-billing-enroll.component';
 import { ServiceRequestModalComponent } from './components/outages/outages/service-request-modal/service-request-modal.component';
+import { MobileOutageMenuComponent } from './components/outages/mobile-outage-menu/mobile-outage-menu.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ServiceRequestModalComponent } from './components/outages/outages/servi
    NotificationComponent,
    CurrentOutageModalDetailsComponent,
    OutageDetailsComponent,
+   MobileOutageMenuComponent,
    RequestExtensionComponent,
    AutoPayEnrollComponent,
    PaperlessBillingEnrollComponent,

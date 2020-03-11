@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MustMatch } from 'src/app/components/sign-up/helpers/validators';
 
@@ -11,7 +11,8 @@ import { MustMatch } from 'src/app/components/sign-up/helpers/validators';
 export class AccountPasswordComponent implements OnInit {
   accountPasswordFormControl: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<AccountPasswordComponent>,
+  constructor(private _snackbar: MatSnackBar,
+              public dialogRef: MatDialogRef<AccountPasswordComponent>,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -57,5 +58,8 @@ export class AccountPasswordComponent implements OnInit {
       return;
     }
     this.dialogRef.close();
+    this._snackbar.open('Your password has been updated', 'Dismiss', {
+      duration: 4000
+    });
   }
 }

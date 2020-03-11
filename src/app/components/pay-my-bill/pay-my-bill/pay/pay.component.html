@@ -113,8 +113,12 @@
           <div (click)="enrollInPaperless()" id="paperless-billing" [hidden]="enrolledInPaperless">
             Sign up for Paperless Billing
           </div>
-          <div id="paperless-billing-enrolled" class="fadeIn" [hidden]="!enrolledInPaperless">
+          <div id="paperless-billing-enrolled" class="fadeIn"
+               [hidden]="!enrolledInPaperless">
             You are enrolled in Paperless Billing 
+            <i class="material-icons">
+              check_circle_outline
+            </i>
           </div>
         </div>
         <div class="btn-container">

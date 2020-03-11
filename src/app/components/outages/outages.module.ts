@@ -16,6 +16,8 @@ import { StartServiceFormComponent } from './outages/service-request-modal/start
 import { StopServiceFormComponent } from './outages/service-request-modal/stop-service-form/stop-service-form.component';
 import { ServiceInvestigationFormComponent } from './outages/service-request-modal/service-investigation-form/service-investigation-form.component';
 import { AccountInquiriesFormComponent } from './outages/service-request-modal/account-inquiries-form/account-inquiries-form.component';
+import { MyServiceRequestsComponent } from './my-service-requests/my-service-requests.component';
+import { MobileOutageMenuComponent } from './mobile-outage-menu/mobile-outage-menu.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +32,17 @@ import { AccountInquiriesFormComponent } from './outages/service-request-modal/a
     StartServiceFormComponent,
     StopServiceFormComponent,
     ServiceInvestigationFormComponent,
-    AccountInquiriesFormComponent
+    AccountInquiriesFormComponent,
+    MyServiceRequestsComponent,
+    MobileOutageMenuComponent
   ],
   imports: [
     CommonModule,
     OutagesRoutingModule,
     SharedModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBMiEZam-6wap7mVNhP4WctIxbU5IyVH-I'
+      apiKey: 'AIzaSyBMiEZam-6wap7mVNhP4WctIxbU5IyVH-I',
+      libraries: ['geometry', 'places']
     }),
   ]
 })

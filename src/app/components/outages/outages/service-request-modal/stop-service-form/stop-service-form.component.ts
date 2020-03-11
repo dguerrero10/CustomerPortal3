@@ -65,6 +65,8 @@ export class StopServiceFormComponent implements OnInit {
       return
     }
     this.dialogRef.close();
-    this._snackbar.open('Your request has been submitted.', 'Dismiss');
+    this._snackbar.open('Your service request has been submitted.', 'Dismiss', {
+      duration: 4000
+    });
   }
 }

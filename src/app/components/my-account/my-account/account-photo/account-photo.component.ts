@@ -12,6 +12,7 @@ export class AccountPhotoComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   onNoClick(): void {
     this.dialogRef.close();
   }

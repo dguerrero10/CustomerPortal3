@@ -16,3 +16,13 @@
     background: #26374D;
     color: white !important;
   }
+
+  @media (max-width: 425px) {
+    .form-container {
+        margin: 0;
+    }
+
+    .back-btn {
+      margin-left: -35px !important;
+    }
+}

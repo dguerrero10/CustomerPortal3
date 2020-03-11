@@ -67,7 +67,7 @@ export class OutagesService {
 
   getMyOutages(): Observable<Outage[]> {
     return this.getOutages().pipe(
-      map((outages: Outage[]) => outages.filter(outage => outage.id === '1'))
+      map((outages: Outage[]) => outages.filter(outage => outage.uid === '1'))
     );
   }
 

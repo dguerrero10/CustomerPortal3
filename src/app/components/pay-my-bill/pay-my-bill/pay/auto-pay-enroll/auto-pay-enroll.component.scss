@@ -12,3 +12,13 @@
   .form-field-col {
     width: 50%;
   }
+
+  @media (max-width: 770px) {
+    .form-field-col {
+      width: 100%;
+    }
+
+    .mat-expansion-panel {
+      padding: 8px;
+    }
+  }

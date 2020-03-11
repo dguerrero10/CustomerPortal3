@@ -1,6 +1,7 @@
 import {Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AutoBillingDialogData } from '../pay.component';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,9 +15,14 @@ export class AutoPayEnrollComponent implements OnInit {
 
   autoPayFormControl: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<AutoPayEnrollComponent>,
+  constructor(private _scrollToService: ScrollToService,
+              public dialogRef: MatDialogRef<AutoPayEnrollComponent>,
               private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: AutoBillingDialogData) { }
+
+  config: ScrollToConfigOptions = {
+    target: 'invalid-form'
+  };
 
   ngOnInit() {
     this.createForm();
@@ -76,6 +82,7 @@ export class AutoPayEnrollComponent implements OnInit {
 
   onSubmit() {
     if (this.autoPayFormControl.invalid) {
+      this._scrollToService.scrollTo(this.config);
       return;
     }
     this.dialogRef.close();

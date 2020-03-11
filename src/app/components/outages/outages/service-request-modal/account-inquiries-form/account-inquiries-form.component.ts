@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialogRef } from '@angular/material';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
+import { ServiceRequestModalComponent } from '../service-request-modal.component';
 
 interface Inquiry {
   value: string;
@@ -24,7 +25,8 @@ export class AccountInquiriesFormComponent implements OnInit {
     {value: 'payments', viewValue: 'Payments'}
   ];
   
-  constructor(private fb: FormBuilder,
+  constructor(public dialogRef: MatDialogRef<ServiceRequestModalComponent>,
+              private fb: FormBuilder,
               private _snackbar: MatSnackBar,
               private _scrollToService: ScrollToService) { }
 
@@ -63,6 +65,9 @@ export class AccountInquiriesFormComponent implements OnInit {
           this._scrollToService.scrollTo(this.config);
           return
       }
-      this._snackbar.open('Your request has been submitted.', 'Dismiss');
+      this.dialogRef.close();
+      this._snackbar.open('Your service request has been submitted.', 'Dismiss', {
+        duration: 4000
+      });
     }
 }

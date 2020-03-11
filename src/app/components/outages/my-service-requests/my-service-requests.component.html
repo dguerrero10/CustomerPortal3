@@ -1,0 +1,14 @@
+<div class="list-container">
+    <mat-list class="fadeInLeft">
+      <mat-list-item *ngFor="let request of myServiceRequests$ | async">
+        <img matListAvatar [src]="request.imgUrl" alt="...">
+        <h3 matLine style="font-weight: bold; text-decoration: underline;">{{request.serviceCategory}}</h3>
+        <h3 matLine>{{request.serviceType}}</h3>
+        <h3 matLine>Status: {{request.status}}</h3>
+        <p matLine>
+          <span> Submitted: {{request.date | date:'medium'}} </span>
+        </p>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>

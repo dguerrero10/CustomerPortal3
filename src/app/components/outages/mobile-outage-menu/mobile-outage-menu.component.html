@@ -1,0 +1,28 @@
+<div class="menu-wrapper">
+  <mat-toolbar>
+    <mat-toolbar-row (click)="dismissMenu()">
+      <i class="material-icons" mat-ripple matRippleUnbounded 
+         style="background: whitesmoke; border-radius: 50%;">
+        keyboard_arrow_down
+      </i>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <button mat-raised-button (click)="openReportOutageDialog()" id="report-btn">Report Outage</button>
+      <button mat-raised-button (click)="openServiceRequestDialog()" id="service-req-btn">Service Request</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-tab-group style="margin-top: 10px;">
+    <mat-tab label="Current Outages">
+      <app-current-outages></app-current-outages>
+    </mat-tab>
+    <mat-tab label="Planned Outages">
+      <app-planned-outage></app-planned-outage>
+    </mat-tab>
+    <mat-tab label="My Outages">
+      <app-my-outages></app-my-outages>
+    </mat-tab>
+    <mat-tab label="My Service Requests">
+      <app-my-service-requests></app-my-service-requests>
+    </mat-tab>
+  </mat-tab-group>
+</div>

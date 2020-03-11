@@ -124,12 +124,16 @@ img {
   overflow: auto;
 }
 
-#report-btn {
+#report-btn, #service-req-btn{
   margin: 25px;
   padding: 10px;
   width: 50%;
   color: white;
   background: rgb(211, 41, 84);
+}
+
+#service-req-btn {
+  background: #266BC5;
 }
 
 .payment-made {
@@ -295,7 +299,7 @@ img {
     height: 250px !important;
   }
 
-  #report-btn {
+  #report-btn, #service-req-btn {
     display: none;
   }
 }

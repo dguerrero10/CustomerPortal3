@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Service Request</h1>
 <div mat-dialog-content>
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
+  <mat-horizontal-stepper #stepper>
+    <mat-step>
       <form [formGroup]="serviceRequestFormControl" (ngSubmit)="onSubmit(typeOfRequest.value)">
         <ng-template matStepLabel>Select Type of Service Request</ng-template>
         <mat-form-field>
@@ -22,41 +22,37 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
+    <mat-step>
         <ng-template matStepLabel>Fill Out Service Request</ng-template>
         <ng-container *ngIf="serviceRequestType[0].selected">
-          <button mat-button matStepperPrevious>
+          <button mat-button matStepperPrevious class="back-btn">
             <i class="material-icons">
               arrow_back
             </i>
-            Back
           </button>
           <app-start-service-form></app-start-service-form>
         </ng-container>
         <ng-container *ngIf="serviceRequestType[1].selected">
-          <button mat-button matStepperPrevious>
+          <button mat-button matStepperPrevious class="back-btn">
             <i class="material-icons">
               arrow_back
             </i>
-            Back
           </button>
           <app-stop-service-form></app-stop-service-form>
         </ng-container>
         <ng-container *ngIf="serviceRequestType[2].selected">
-          <button mat-button matStepperPrevious>
+          <button mat-button matStepperPrevious class="back-btn">
             <i class="material-icons">
               arrow_back
             </i>
-            Back
           </button>
           <app-service-investigation-form></app-service-investigation-form>
         </ng-container>
         <ng-container *ngIf="serviceRequestType[3].selected">
-          <button mat-button matStepperPrevious>
+          <button mat-button matStepperPrevious class="back-btn"> 
             <i class="material-icons">
               arrow_back
             </i>
-            Back
           </button>
           <app-account-inquiries-form></app-account-inquiries-form>
         </ng-container>

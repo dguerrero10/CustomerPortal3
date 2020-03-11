@@ -3,27 +3,27 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar style="color: white;">Menu</mat-toolbar>
     <mat-nav-list *ngIf="navbarService.visible">
-      <a mat-list-item routerLink="/home">
+      <a mat-list-item routerLink="/home" (click)="drawer.close()">
         <mat-icon class="icon">home</mat-icon>
         Home
       </a>
-      <a mat-list-item routerLink="/pay-my-bill">
+      <a mat-list-item routerLink="/pay-my-bill" (click)="drawer.close()">
         <mat-icon class="icon">credit_card</mat-icon>
         Pay My Bill
       </a>
-      <a mat-list-item routerLink="/usage">
+      <a mat-list-item routerLink="/usage" (click)="drawer.close()">
         <mat-icon class="icon">insert_chart</mat-icon>
         Usage
       </a>
-      <a mat-list-item routerLink="/outages">
+      <a mat-list-item routerLink="/outages" (click)="drawer.close()">
         <mat-icon class="icon">assignment_ind</mat-icon>
         My Reports
       </a>
-      <a mat-list-item routerLink="/my-account">
+      <a mat-list-item routerLink="/my-account" (click)="drawer.close()">
         <mat-icon class="icon">settings</mat-icon>
         My Account
       </a>
-      <a mat-list-item (click)="logout()">
+      <a mat-list-item (click)="logout()" (click)="drawer.close()">
         <mat-icon class="icon">logout</mat-icon>
         Logout
       </a>
@@ -58,8 +58,8 @@
         </a>
         <a routerLink="/outages" class="nav-list-item">
           <button mat-button>
-            <mat-icon class="icon">build</mat-icon>
-            Outages
+            <mat-icon class="icon">assignment_ind</mat-icon>
+            My Reports
           </button>
         </a>
         <a routerLink="/my-account" class="nav-list-item">
@@ -76,7 +76,9 @@
         </a>
       </ul>
     </mat-toolbar>
-    <mat-progress-bar *ngIf="loading" style="padding: 3px; margin-top: -3px" mode="indeterminate">
+    <mat-progress-bar *ngIf="loading"
+    style="padding: 3px 0; 
+    margin-top: -4px;" mode="indeterminate">
     </mat-progress-bar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

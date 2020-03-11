@@ -18,9 +18,6 @@ export class MyAccountComponent implements OnInit {
   email = 'lisaA@gmail.com';
   photo = '../../../../assets/images/avatar/lisa-a.jpg';
 
-  action = 'Dismiss';
-  message: string;
-
   constructor(public navbarService: NavbarService,
               public dialog: MatDialog,
               private _snackBar: MatSnackBar) {}
@@ -35,9 +32,7 @@ export class MyAccountComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.message = 'Your email has been updated.';
-      this.openSnackBar(this.message, this.action);
+      console.log('result');
     });
   }
   openPhoneDialog(): void {
@@ -46,9 +41,7 @@ export class MyAccountComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.message = 'Your Phone Number has been updated.';
-      this.openSnackBar(this.message, this.action);
+      console.log(result);
     });
   }
 
@@ -58,9 +51,7 @@ export class MyAccountComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.message = 'Your Password has been updated.';
-      this.openSnackBar(this.message, this.action);
+      console.log(result);
     });
   }
 
@@ -70,15 +61,7 @@ export class MyAccountComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.message = 'Your Profile Photo has been updated.';
-      this.openSnackBar(this.message, this.action);
-    });
-  }
-
-  openSnackBar(message, action) {
-    this._snackBar.open(message, action, {
-      duration: 3000,
+      console.log(result);
     });
   }
 }

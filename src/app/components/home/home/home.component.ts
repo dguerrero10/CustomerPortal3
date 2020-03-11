@@ -10,6 +10,8 @@ import { NotificationComponent } from '../notification/notification.component';
 import { Router } from '@angular/router';
 import { OutagesService } from '../../outages/shared/outages.service';
 import { PayMyBillService } from '../../pay-my-bill/pay-my-bill-shared/pay-my-bill.service';
+import { ReportOutageModalComponent } from '../../outages/report-outage-modal/report-outage-modal.component';
+import { ServiceRequestModalComponent } from '../../outages/outages/service-request-modal/service-request-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +21,9 @@ import { PayMyBillService } from '../../pay-my-bill/pay-my-bill-shared/pay-my-bi
 export class HomeComponent implements OnInit {
   date = new Date();
   imgUrl = '../../../../assets/images/avatar/lisa-a.jpg';
+
+  serviceRequest: string;
+  outage: string;
 
   notifications$: Observable<Notification[]>;
   outages$: Observable<Outage[]>;
@@ -47,4 +52,26 @@ export class HomeComponent implements OnInit {
       console.log(`The dialog was closed ${result}`);
     });
   }
+
+  openReportOutageDialog(): void {
+    const dialogRef = this.dialog.open(ReportOutageModalComponent, {
+      width: '500px',
+      data: {outage: this.outage}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.outage = result;
+    });
+  }
+  openServiceRequestDialog(): void {
+    const dialogRef = this.dialog.open(ServiceRequestModalComponent, {
+      data: {serviceRequest: this.serviceRequest}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.serviceRequest = result;
+    });
+  }
 }
+

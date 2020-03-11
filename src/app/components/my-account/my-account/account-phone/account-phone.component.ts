@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,8 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AccountPhoneComponent implements OnInit {
   accountPhoneFormControl: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<AccountPhoneComponent>,
-    private fb: FormBuilder) { }
+  constructor(private _snackbar: MatSnackBar,
+              public dialogRef: MatDialogRef<AccountPhoneComponent>,
+              private fb: FormBuilder) { }
 
   ngOnInit() {
     this.createForm();
@@ -55,6 +56,9 @@ export class AccountPhoneComponent implements OnInit {
       return;
     }
     this.dialogRef.close();
+    this._snackbar.open('Your phone number has been updated.', 'Dismiss', {
+      duration: 4000
+    }); 
   }
 
 }

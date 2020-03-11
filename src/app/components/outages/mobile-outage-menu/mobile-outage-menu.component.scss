@@ -1,0 +1,29 @@
+.mat-toolbar {
+    background: white;
+}
+
+.mat-toolbar-row {
+    display: flex;
+    justify-content: center;
+    background: white;
+    height: 25px;
+}
+
+.mat-toolbar-row {
+    margin: 10px 0;
+}
+
+#report-btn {
+    width: 50%;
+    margin: 7px;
+    color: white;
+    background: rgb(211, 41, 84);
+  }
+  
+  #service-req-btn {
+    width: 50%;
+    margin: 7px;
+    color: white;
+    background: #126BC5;
+  }
+  

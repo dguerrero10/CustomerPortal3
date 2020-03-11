@@ -3,7 +3,7 @@
         <div class="mat-h2" style="margin-bottom: 0;">Hi, Lisa!</div>
       </mat-toolbar-row>
   <mat-toolbar-row class="header-row">
-    <img [src]="imgUrl" class="zoomIn" alt="">
+    <img [src]="imgUrl" alt="">
   </mat-toolbar-row>
   <mat-toolbar-row class="header-row">
     <div class="mat-h2">Today is {{date | date}}</div>
@@ -12,7 +12,7 @@
 <div class="page-container">
   <div class="row-container">
     <div class="col">
-      <mat-card class="card fadeInLeft">
+      <mat-card class="card fadeInUp">
         <mat-card-header class="card-header">
           <mat-card-title *ngIf="notifications$ | async as notifications"
           class="card-title" matBadge="{{notifications.length}}"
@@ -45,7 +45,7 @@
       </mat-card>
     </div>
     <div class="col">
-      <mat-card class="card fadeInRight">
+      <mat-card class="card fadeInUp">
         <a routerLink="/usage">
           <mat-card-header class="card-header" style="margin-bottom: 35px;">
             <mat-card-title class="card-title">Usage</mat-card-title>
@@ -71,7 +71,8 @@
           <app-current-outages></app-current-outages>
         </div>
         <div style="display: flex; justify-content: center;">
-          <button id="report-btn" routerLink="/outages" mat-raised-button>Report Outage</button>
+          <button id="report-btn" (click)="openReportOutageDialog()" mat-raised-button>Report Outage</button>
+          <button id="service-req-btn" (click)="openServiceRequestDialog()" mat-raised-button>Service Request</button>
         </div>
       </mat-card>
     </div>

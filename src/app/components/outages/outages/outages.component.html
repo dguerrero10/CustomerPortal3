@@ -11,6 +11,9 @@
         <mat-tab label="My Outages">
           <app-my-outages></app-my-outages>
         </mat-tab>
+        <mat-tab label="My Service Requests">
+          <app-my-service-requests></app-my-service-requests>
+        </mat-tab>
       </mat-tab-group>
       <div class="mat-h4" style="text-align: center; margin: 10px;">
         Outage reports disappear 24 hours after they are resolved.
@@ -30,12 +33,13 @@
 
 <div id="mobile">
   <app-agm-map></app-agm-map>
-  <div class="menu-section">
-    <div style="display: flex; justify-content: center;">
-      <i class="material-icons">
+  <div class="menu-section" (click)="openMobileOutageMenu()">
+    <div style="display: flex; justify-content: center; margin-top: 10px;">
+      <i class="material-icons" mat-ripple matRippleUnbounded
+          style="background: whitesmoke; border-radius: 50%;">
         keyboard_arrow_up
       </i>
     </div>
-    <div class="mat-h3" style="text-align: center;">Outage Menu</div>
+    <div class="mat-h3" style="text-align: center; color: #266BC5;">Reports Menu</div>
   </div>
 </div>

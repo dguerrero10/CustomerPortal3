@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarService } from '../../shared-services/navbar.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatBottomSheetRef, MatDialog } from '@angular/material';
 import { ReportOutageModalComponent } from '../report-outage-modal/report-outage-modal.component';
-import { ServiceRequestModalComponent } from './service-request-modal/service-request-modal.component';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { MobileOutageMenuComponent } from '../mobile-outage-menu/mobile-outage-menu.component';
+import { ServiceRequestModalComponent } from '../outages/service-request-modal/service-request-modal.component';
 
 export interface OutageDialogData {
   outage: string;
@@ -15,26 +12,28 @@ export interface ServiceRequestDialogData {
 }
 
 @Component({
-  selector: 'app-outages',
-  templateUrl: './outages.component.html',
-  styleUrls: ['./outages.component.scss']
+  selector: 'app-mobile-outage-menu',
+  templateUrl: './mobile-outage-menu.component.html',
+  styleUrls: ['./mobile-outage-menu.component.scss']
 })
-export class OutagesComponent implements OnInit {
-
-  serviceRequest: string;
+export class MobileOutageMenuComponent implements OnInit {
+  
   outage: string;
+  serviceRequest: string;
 
-
-  constructor(private outageMenuMobile: MatBottomSheet,
-              public navbarService: NavbarService,
-              public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+              private mobileOutageMenuRef: MatBottomSheetRef<MobileOutageMenuComponent>) { }
 
   ngOnInit() {
-    this.navbarService.show();
   }
 
-  openMobileOutageMenu(): void {
-    this.outageMenuMobile.open(MobileOutageMenuComponent);
+  dismissMenu(): void {
+    this.mobileOutageMenuRef.dismiss();
+  }
+
+  openLink(event: MouseEvent): void {
+    this.mobileOutageMenuRef.dismiss();
+    event.preventDefault();
   }
 
   openReportOutageDialog(): void {
@@ -58,4 +57,5 @@ export class OutagesComponent implements OnInit {
       this.serviceRequest = result;
     });
   }
+
 }

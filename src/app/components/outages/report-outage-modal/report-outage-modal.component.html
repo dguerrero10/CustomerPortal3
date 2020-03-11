@@ -1,22 +1,40 @@
 <h1 mat-dialog-title>Report Outage</h1>
+<form [formGroup]="reportOutageFormControl" (ngSubmit)="onSubmit()">
 <div mat-dialog-content>
-  <p>Enter information about outage</p>
+  <p>Enter information about the outage</p>
   <mat-form-field class="form-field">
     <mat-label>Type of outage</mat-label>
-    <mat-select>
+    <mat-select formControlName="outageType" required>
       <mat-option *ngFor="let outage of outageType" [value]="outage.value">
         {{outage.viewValue}}
       </mat-option>
     </mat-select>
+    <mat-error *ngIf="!reportOutageFormControl.controls['outageType'].valid">
+      {{getErrors('outageType')}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Location</mat-label>
+    <input matInput value="Your location" formControlName='outageLocation'
+    type="text" class="form-control" (keydown.enter)="$event.preventDefault()" 
+    autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+    <mat-error *ngIf="!reportOutageFormControl.controls['outageLocation'].valid">
+      {{getErrors('outageLocation')}}
+    </mat-error>
+    <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
   <mat-form-field class="form-field">
     <mat-label>Comment</mat-label>
-    <textarea matInput placeholder="Ex. My water color is slightly brown..."></textarea>
+    <textarea matInput formControlName="outageComment" required placeholder="Ex. My water color is slightly brown..."></textarea>
+    <mat-error *ngIf="!reportOutageFormControl.controls['outageComment'].valid">
+      {{getErrors('outageComment')}}
+    </mat-error>
   </mat-form-field>
 </div>
 <div mat-dialog-actions style="justify-content: center;">
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-raised-button [mat-dialog-close]="data.outage" cdkFocusInitial id="submit-btn">
+  <button mat-raised-button type="submit" cdkFocusInitial id="submit-btn">
     Submit
   </button>
 </div>
+</form>

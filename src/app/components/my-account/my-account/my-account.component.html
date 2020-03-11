@@ -7,7 +7,7 @@
   </div>
   <div class="mat-h3 section-info">
     For any questions regarding your account number or address please contact the utility.
-    <a href="" style="text-decoration: none;"> Learn more.</a>
+    <a href="" style="text-decoration: none; color: #1F56B3;">Learn more.</a>
   </div>
 </div>
 
@@ -16,15 +16,15 @@
   <mat-list class="list-container">
     <div class="mat-headline category">Profile</div>
 
-    <mat-list-item id="avatar-item" (click)="openPhotoDialog()">
-      <img id="avatar" class="zoomIn" matListAvatar [src]="photo" alt="...">
+    <mat-list-item id="avatar-item" mat-ripple matRippleCentered (click)="openPhotoDialog()">
+      <img id="avatar" matListAvatar [src]="photo" alt="...">
       <h4 mat-line>Profile Image</h4>
       <p mat-line>A photo helps personalize your account</p>
     </mat-list-item>
 
     <mat-divider></mat-divider>
 
-    <mat-list-item (click)="openPasswordDialog()">
+    <mat-list-item mat-ripple matRippleCentered (click)="openPasswordDialog()">
       <mat-icon mat-list-icon>vpn_key</mat-icon>
       <h4 mat-line>Password</h4>
       <p mat-line>*********</p>
@@ -33,7 +33,7 @@
     <mat-divider></mat-divider>
 
     <div class="mat-headline category" style="margin-top: 25px;">Contact Info</div>
-    <mat-list-item (click)="openEmailDialog()">
+    <mat-list-item mat-ripple matRippleCentered  (click)="openEmailDialog()">
       <mat-icon mat-list-icon>email</mat-icon>
       <h4 mat-line>Email</h4>
       <p mat-line>{{ email }}</p>
@@ -41,7 +41,7 @@
 
     <mat-divider></mat-divider>
 
-    <mat-list-item (click)="openPhoneDialog()">
+    <mat-list-item mat-ripple matRippleCentered (click)="openPhoneDialog()">
       <mat-icon mat-list-icon>phone</mat-icon>
       <h4 mat-line>Phone</h4>
       <p mat-line>{{ phone }}</p>

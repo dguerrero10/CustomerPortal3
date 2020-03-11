@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-account-email',
@@ -10,7 +10,8 @@ import { MatDialogRef } from '@angular/material';
 export class AccountEmailComponent implements OnInit {
   accountEmailFormControl: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<AccountEmailComponent>,
+  constructor(private _snackbar: MatSnackBar,
+              public dialogRef: MatDialogRef<AccountEmailComponent>,
               private fb: FormBuilder
               ) { }
 
@@ -46,6 +47,9 @@ export class AccountEmailComponent implements OnInit {
       return;
     }
     this.dialogRef.close();
+    this._snackbar.open('Your email has been updated.', 'Dismiss', {
+      duration: 4000
+    });
   }
 
 }

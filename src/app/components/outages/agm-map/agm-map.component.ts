@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleMapsService } from '../shared/google-maps.service';
 
 @Component({
   selector: 'app-agm-map',
@@ -7,13 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgmMapComponent implements OnInit {
   lat: number;
-  long: number;
+  lng: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.lat = 34.099201;
-    this.long = -118.107231;
+    this.getCurrentLocation();
   }
 
+  getCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+      });
+    }
+  }
 }

@@ -21,7 +21,10 @@ import { MatToolbarModule,
          MatCheckboxModule,
          MatDialogModule,
          MatTooltipModule,
-         MatStepperModule
+         MatStepperModule,
+         MatBottomSheetModule,
+         MatProgressSpinnerModule,
+         MatRippleModule
         } from '@angular/material';
 
 import { MatBadgeModule } from '@angular/material/badge';
@@ -50,7 +53,10 @@ const MaterialComponents = [
   MatCheckboxModule,
   MatDialogModule,
   MatTooltipModule,
-  MatStepperModule
+  MatStepperModule,
+  MatBottomSheetModule,
+  MatProgressSpinnerModule,
+  MatRippleModule
 ];
 
 @NgModule({
