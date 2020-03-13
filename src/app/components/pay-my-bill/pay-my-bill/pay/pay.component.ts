@@ -90,7 +90,10 @@ export class PayComponent implements OnInit {
     if (this.payBillFormControl.invalid) {
       return;
     }
-    console.log('success');
+    this.payBillFormControl.reset();
+    this._snackBar.open('Thank you for paying your bill.', 'Dismiss', {
+      duration: 4000
+    });
   }
 
   // Request extension dialog
