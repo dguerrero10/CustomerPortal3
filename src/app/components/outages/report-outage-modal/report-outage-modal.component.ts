@@ -23,7 +23,7 @@ export class ReportOutageModalComponent implements OnInit {
   address: string;
   reportOutageFormControl: FormGroup;
 
-  @ViewChild('search', {static: false})
+  @ViewChild('search')
   public searchElementRef: ElementRef;
 
   outageType: Outage[] = [

@@ -303,3 +303,13 @@ img {
     display: none;
   }
 }
+
+@media (max-height: 800px) {
+  .card {
+    height: 425px;
+    }
+  #report-btn, #service-req-btn{
+    margin: 5px;
+    }
+  }
+  

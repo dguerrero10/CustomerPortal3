@@ -9,7 +9,7 @@ import { Chart } from 'chart.js';
 export class ChartDollarsComponent implements OnInit {
   canvas: any;
   ctx: any;
-  @ViewChild('chartDollars', {static: false}) chartDollars;
+  @ViewChild('chartDollars') chartDollars;
 
   constructor() {}
 

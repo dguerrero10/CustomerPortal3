@@ -9,7 +9,7 @@ import { Chart } from 'chart.js';
 export class ChartGallonsComponent implements OnInit {
   canvas: any;
   ctx: any;
-  @ViewChild('chartGallons', {static: false}) chartGallons;
+  @ViewChild('chartGallons') chartGallons;
 
   constructor() {}
 
