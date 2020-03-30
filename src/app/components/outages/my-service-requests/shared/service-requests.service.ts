@@ -14,6 +14,7 @@ export class ServiceRequestsService {
     new ServiceRequest (
     '1',
     '1',
+    'GH123232',
     'Service Investigation',
     'Being processed',
     date,

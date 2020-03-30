@@ -21,6 +21,7 @@ export class AccountPasswordComponent implements OnInit {
 
   createForm() {
     this.accountPasswordFormControl = this.fb.group({
+      previousPassword: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required]]
     }, {
@@ -30,6 +31,11 @@ export class AccountPasswordComponent implements OnInit {
 
   getErrors(el) {
     switch (el) {
+      case 'previousPassword':
+        if (this.accountPasswordFormControl.get('previousPassword').hasError('required')) {
+          return 'This field is required.';
+        }
+        break;
       case 'password':
         if (this.accountPasswordFormControl.get('password').hasError('required')) {
           return 'This field is required';

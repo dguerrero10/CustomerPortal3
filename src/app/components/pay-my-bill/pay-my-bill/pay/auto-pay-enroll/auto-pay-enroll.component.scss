@@ -13,6 +13,13 @@
     width: 50%;
   }
 
+  #check-btn {
+    margin-top: -5px;
+    margin-bottom: 12px;
+    background: #26374D; 
+    color: white;
+  }
+
   @media (max-width: 770px) {
     .form-field-col {
       width: 100%;

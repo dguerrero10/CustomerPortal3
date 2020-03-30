@@ -51,7 +51,7 @@
 
     <div class="mat-headline category" style="margin-top: 25px;">Preferences</div>
       <mat-selection-list>
-        <mat-list-option>
+        <mat-list-option (click)="enrollInPaperless()">
         <mat-icon mat-list-icon>eco</mat-icon>
          <h4 mat-line>Paperless Billing</h4>
         <p mat-line>Recieve your bill by email only</p>
@@ -61,7 +61,7 @@
     <mat-divider></mat-divider>
 
     <mat-selection-list>
-      <mat-list-option>
+      <mat-list-option (click)="enrollInAutoPay()">
       <mat-icon mat-list-icon>timelapse</mat-icon>
        <h4 mat-line>Auto Pay</h4>
       <p mat-line>Have your bill be paid automatically each month</p>
@@ -69,8 +69,6 @@
     </mat-selection-list>
 
   <mat-divider></mat-divider>
-
-
   </mat-list>
 </div>
 </div>
