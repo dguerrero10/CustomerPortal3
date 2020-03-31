@@ -12,13 +12,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AutoPayEnrollComponent implements OnInit {
   date = new Date();
   valid: boolean;
+  paymentMethod: string;
 
   autoPayFormControl: FormGroup;
 
   constructor(private _scrollToService: ScrollToService,
               public dialogRef: MatDialogRef<AutoPayEnrollComponent>,
               private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: AutoBillingDialogData) { }
+              @Inject(MAT_DIALOG_DATA) public data: AutoBillingDialogData) { }
 
   config: ScrollToConfigOptions = {
     target: 'invalid-form'
@@ -27,6 +28,8 @@ export class AutoPayEnrollComponent implements OnInit {
   ngOnInit() {
     this.createForm();
   }
+
+  paymentOptions: string[] = ['Debit/Credit Card', 'Bank Account']
 
   createForm() {
     this.autoPayFormControl = this.fb.group({

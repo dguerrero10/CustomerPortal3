@@ -24,7 +24,8 @@ import { MatToolbarModule,
          MatStepperModule,
          MatBottomSheetModule,
          MatProgressSpinnerModule,
-         MatRippleModule
+         MatRippleModule,
+         MatRadioModule
         } from '@angular/material';
 
 import { MatBadgeModule } from '@angular/material/badge';
@@ -56,7 +57,8 @@ const MaterialComponents = [
   MatStepperModule,
   MatBottomSheetModule,
   MatProgressSpinnerModule,
-  MatRippleModule
+  MatRippleModule,
+  MatRadioModule
 ];
 
 @NgModule({
