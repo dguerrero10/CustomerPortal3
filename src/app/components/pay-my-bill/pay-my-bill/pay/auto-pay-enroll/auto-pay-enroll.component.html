@@ -48,8 +48,8 @@
     <h1 mat-dialog-title>Automatic Bill Payment (ABP) Setup Information</h1>
     <hr>
 
-    <div class="form-container">
-        <form class="pay-bill-form" [formGroup]="autoPayFormControl" (ngSubmit)="onSubmit()">
+    <div class="form-container-disbaled">
+        <div class="pay-bill-form">
             <mat-form-field class="form-field">
                 <mat-label>Name On Utility Account</mat-label>
                 <input matInput disabled value="Lisa Ackley">
@@ -74,113 +74,129 @@
                 <mat-label>Zip Code</mat-label>
                 <input matInput disabled value="91775">
             </mat-form-field>
-
-            <div id="payment-option-container">
-                <div class="mat-h3" style="margin-bottom: 10px;">Payment Method</div>
-                <mat-radio-group [(ngModel)]="paymentMethod" [ngModelOptions]="{standalone: true}">
-                    <mat-radio-button *ngFor="let option of paymentOptions" [value]="option">{{option}}
-                    </mat-radio-button>
-                </mat-radio-group>
-            </div>
-
-            <ng-container *ngIf="paymentMethod ==='Bank Account'">
+        </div>
+        <div id="payment-option-container">
+            <div class="mat-h3" style="margin-bottom: 10px;">Payment Method</div>
+            <mat-radio-group [(ngModel)]="paymentMethod" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button *ngFor="let option of paymentOptions" [value]="option">{{option}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <form class="pay-bill-form" [formGroup]="payBillBankFormControl">
+        <ng-container *ngIf="paymentMethod ==='Bank Account'">
                 <mat-form-field class="form-field-col" id="invalid-form">
                     <mat-label>Financial Institution (bank, credit union, etc.)</mat-label>
                     <input matInput formControlName="bankName">
-                    <mat-error *ngIf="!autoPayFormControl.controls['bankName'].valid">
-                        {{getErrors('bankName')}}
+                    <mat-error *ngIf="!payBillBankFormControl.controls['bankName'].valid">
+                        {{getErrorsBankAccount('bankName')}}
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="form-field-col">
                     <mat-label>Checking or Savings Account Number</mat-label>
                     <input matInput formControlName="accountBankNum">
-                    <mat-error *ngIf="!autoPayFormControl.controls['accountBankNum'].valid">
-                        {{getErrors('accountBankNum')}}
+                    <mat-error *ngIf="!payBillBankFormControl.controls['accountBankNum'].valid">
+                        {{getErrorsBankAccount('accountBankNum')}}
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="form-field">
                     <mat-label>Financial Institution ABA routing/transit number (9 digits)</mat-label>
                     <input matInput formControlName="routingNum">
-                    <mat-error *ngIf="!autoPayFormControl.controls['routingNum'].valid">
-                        {{getErrors('routingNum')}}
+                    <mat-error *ngIf="!payBillBankFormControl.controls['routingNum'].valid">
+                        {{getErrorsBankAccount('routingNum')}}
                     </mat-error>
                 </mat-form-field>
                 <div class="mat-raised-button" id="check-btn">Upload Check Image</div>
-            </ng-container>
-            <ng-container *ngIf="paymentMethod === 'Debit/Credit Card'">
+        </ng-container>
+        <form class="pay-bill-form" [formGroup]="creditDebitBankFormControl">
+        <ng-container *ngIf="paymentMethod === 'Credit/Debit Card'">
                 <mat-form-field class="form-field-col">
                     <mat-label>Name On Card</mat-label>
                     <input matInput formControlName="nameOnCard">
-                    <mat-error *ngIf="!autoPayFormControl.controls['nameOnCard'].valid">
-                        {{getErrors('nameOnCard')}}
+                    <mat-error *ngIf="!creditDebitBankFormControl.controls['nameOnCard'].valid">
+                        {{getErrorsCreditDebit('nameOnCard')}}
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="form-field-col">
                     <mat-label>Expiration Date</mat-label>
                     <input matInput formControlName="expirationDate">
-                    <mat-error *ngIf="!autoPayFormControl.controls['expirationDate'].valid">
-                        {{getErrors('expirationDate')}}
+                    <mat-error *ngIf="!creditDebitBankFormControl.controls['expirationDate'].valid">
+                        {{getErrorsCreditDebit('expirationDate')}}
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="form-field-col">
                     <mat-label>Card Number</mat-label>
                     <input matInput formControlName="cardNumber">
-                    <mat-error *ngIf="!autoPayFormControl.controls['cardNumber'].valid">
-                        {{getErrors('cardNumber')}}
+                    <mat-error *ngIf="!creditDebitBankFormControl.controls['cardNumber'].valid">
+                        {{getErrorsCreditDebit('cardNumber')}}
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="form-field-col">
                     <mat-label>CSV</mat-label>
                     <input matInput formControlName="CSV">
-                    <mat-error *ngIf="!autoPayFormControl.controls['CSV'].valid">
-                        {{getErrors('CSV')}}
+                    <mat-error *ngIf="!creditDebitBankFormControl.controls['CSV'].valid">
+                        {{getErrorsCreditDebit('CSV')}}
                     </mat-error>
                 </mat-form-field>
-            </ng-container>
-            <p>Please complete an application for each utility account. Payments rejected by your financial institution
-                will
-                incur additional fees.
-            </p>
+        </ng-container>
+        <p>Please complete an application for each utility account. Payments rejected by your financial institution
+            will
+            incur additional fees.
+        </p>
+        <p>
+            I hereby authorize My Utility Services Water Company or a subsidiary company (Company) to deduct funds
+            from
+            the
+            account listed above at the financial institution listed above, to pay my utility bill. The Company may
+            initiate
+            a direct charge to my account for the total amount due. I understand this authorization is to remain in
+            full
+            force until the Company has received written confirmation of its termination, at least 72 hours in
+            advance of
+            the next scheduled payment. I understand the Company may discontinue my participation in this service,
+            if
+            necessary.
+        </p>
+        <div class="mat-h1" style="margin-top: 35px;">{{ date | date }}</div>
+        <hr>
+        <p>The user acknowledges and agrees that this document may be executed by electronic signature,
+            which shall be considered as an original signature for all purposes and shall have the same force and
+            effect as an original signature.
             <p>
-                I hereby authorize My Utility Services Water Company or a subsidiary company (Company) to deduct funds
-                from
-                the
-                account listed above at the financial institution listed above, to pay my utility bill. The Company may
-                initiate
-                a direct charge to my account for the total amount due. I understand this authorization is to remain in
-                full
-                force until the Company has received written confirmation of its termination, at least 72 hours in
-                advance of
-                the next scheduled payment. I understand the Company may discontinue my participation in this service,
-                if
-                necessary.
-            </p>
-            <div class="mat-h1" style="margin-top: 35px;">{{ date | date }}</div>
-            <hr>
-            <p>The user acknowledges and agrees that this document may be executed by electronic signature,
-                which shall be considered as an original signature for all purposes and shall have the same force and
-                effect as an original signature.
-                <p>
-                    <mat-checkbox>I agree.</mat-checkbox>
-                    <mat-form-field class="form-field">
-                        <mat-label>Enter your name as a signature</mat-label>
-                        <input matInput formControlName="signature">
-                        <mat-error *ngIf="!autoPayFormControl.controls['signature'].valid">
-                            {{getErrors('signature')}}
-                        </mat-error>
-                    </mat-form-field>
-                    <div mat-dialog-actions style="justify-content: center;">
-                        <button mat-button (click)="onNoClick()">Cancel</button>
-                        <button mat-raised-button type="submit" cdkFocusInitial
-                            style="background: #26374D; color: white;">
-                            Submit
-                        </button>
-                    </div>
+            <div *ngIf="paymentMethod === 'Bank Account'">
+                <mat-checkbox>I agree.</mat-checkbox>
+                <mat-form-field class="form-field">
+                    <mat-label>Enter your name as a signature</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <div mat-dialog-actions style="justify-content: center;">
+                    <button mat-button (click)="onNoClick()">Cancel</button>
+                    <button mat-raised-button cdkFocusInitial (click)="onSubmitBankAccount()" style="background: #26374D; color: white;">
+                        Submit
+                    </button>
+                </div>
+            </div>
         </form>
+
+
+            <div *ngIf="paymentMethod === 'Credit/Debit Card'">
+                <mat-checkbox>I agree.</mat-checkbox>
+                <mat-form-field class="form-field">
+                    <mat-label>Enter your name as a signature</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <div mat-dialog-actions style="justify-content: center;">
+                    <button mat-button (click)="onNoClick()">Cancel</button>
+                    <button mat-raised-button cdkFocusInitial (click)="onSubmitCreditDebit()"  style="background: #26374D; color: white;">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+
     </div>
 
 </mat-dialog-content>

@@ -1,4 +1,4 @@
-import {Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AutoBillingDialogData } from '../pay.component';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
@@ -14,105 +14,125 @@ export class AutoPayEnrollComponent implements OnInit {
   valid: boolean;
   paymentMethod: string;
 
-  autoPayFormControl: FormGroup;
+  payBillBankFormControl: FormGroup;
+  creditDebitBankFormControl: FormGroup;
 
   constructor(private _scrollToService: ScrollToService,
               public dialogRef: MatDialogRef<AutoPayEnrollComponent>,
               private fb: FormBuilder,
-              @Inject(MAT_DIALOG_DATA) public data: AutoBillingDialogData) { }
+              @Inject(MAT_DIALOG_DATA) public data: AutoBillingDialogData) {}
 
   config: ScrollToConfigOptions = {
     target: 'invalid-form'
   };
 
   ngOnInit() {
-    this.createForm();
+    this.createFormBankAccount();
+    this.createFormCreditDebit();
   }
 
-  paymentOptions: string[] = ['Debit/Credit Card', 'Bank Account']
+  paymentOptions: string[] = ['Credit/Debit Card', 'Bank Account']
 
-  createForm() {
-    this.autoPayFormControl = this.fb.group({
+  createFormBankAccount() {
+    this.payBillBankFormControl = this.fb.group({
       bankName: ['', [Validators.required]],
       accountBankNum: ['', [Validators.required, Validators.pattern('[0-9]{0,10}')]],
       routingNum: ['', [Validators.required,
                         Validators.minLength(9),
                         Validators.maxLength(9),
-                        Validators.pattern('[0-9]{0,10}')]],
-      nameOnCard: ['', [Validators.required]],
-      expirationDate:['', [Validators.required]],
-      cardNumber: ['',[Validators.required]],
-      CSV: ['', [Validators.required]],
-      signature: ['', [Validators.required]]
+                        Validators.pattern('[0-9]{0,10}')]]
     });
   }
 
-  getErrors(el) {
+  createFormCreditDebit() {
+    this.creditDebitBankFormControl = this.fb.group({
+      nameOnCard: ['', [Validators.required]],
+      expirationDate: ['', [Validators.required]],
+      cardNumber: ['', [Validators.required]],
+      CSV: ['', [Validators.required]]
+    });
+  }
+
+  getErrorsBankAccount(el) {
     switch (el) {
       case 'bankName':
-        if (this.autoPayFormControl.get('bankName').hasError('required')) {
+        if (this.payBillBankFormControl.get('bankName').hasError('required')) {
           return 'This field is required.'
         }
         break;
       case 'accountBankNum':
-        if (this.autoPayFormControl.get('accountBankNum').hasError('required')) {
+        if (this.payBillBankFormControl.get('accountBankNum').hasError('required')) {
           return 'This field is required.'
         }
-        if (this.autoPayFormControl.get('accountBankNum').hasError('pattern')) {
+        if (this.payBillBankFormControl.get('accountBankNum').hasError('pattern')) {
           return 'This field only accepts numbers.'
         }
         break;
       case 'routingNum':
-        if (this.autoPayFormControl.get('routingNum').hasError('required')) {
+        if (this.payBillBankFormControl.get('routingNum').hasError('required')) {
           return 'This field is required.'
         }
-        if (this.autoPayFormControl.get('routingNum').hasError('minlength')) {
+        if (this.payBillBankFormControl.get('routingNum').hasError('minlength')) {
           return 'This field must be 9 numbers long.'
         }
-        if (this.autoPayFormControl.get('routingNum').hasError('maxlength')) {
+        if (this.payBillBankFormControl.get('routingNum').hasError('maxlength')) {
           return 'This field must be 9 numbers long.'
         }
-        if (this.autoPayFormControl.get('routingNum').hasError('pattern')) {
+        if (this.payBillBankFormControl.get('routingNum').hasError('pattern')) {
           return 'This field only accepts numnbers.'
         }
         break;
+    }
+  }
+  getErrorsCreditDebit(el) {
+    switch (el) {
       case 'nameOnCard':
-        if (this.autoPayFormControl.get('nameOnCard').hasError('required')) {
+        if (this.creditDebitBankFormControl.get('nameOnCard').hasError('required')) {
           return 'This field is required.'
         }
         break;
       case 'expirationDate':
-        if (this.autoPayFormControl.get('expirationDate').hasError('required')) {
+        if (this.creditDebitBankFormControl.get('expirationDate').hasError('required')) {
           return 'This field is required.'
         }
         break;
       case 'cardNumber':
-        if (this.autoPayFormControl.get('cardNumber').hasError('required')) {
+        if (this.creditDebitBankFormControl.get('cardNumber').hasError('required')) {
           return 'This field is required.'
         }
         break;
       case 'CSV':
-        if (this.autoPayFormControl.get('CSV').hasError('required')) {
+        if (this.creditDebitBankFormControl.get('CSV').hasError('required')) {
           return 'This field is required.'
         }
         break;
       case 'signature':
-        if (this.autoPayFormControl.get('signature').hasError('required')) {
+        if (this.creditDebitBankFormControl.get('signature').hasError('required')) {
           return 'This field is required.'
         }
         break;
     }
   }
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 
-  onSubmit() {
-    if (this.autoPayFormControl.invalid) {
-      this._scrollToService.scrollTo(this.config);
-      return;
-    }
-    this.dialogRef.close();
-    this.data.enrolledInAutoPay = true;
+onNoClick(): void {
+  this.dialogRef.close();
+}
+
+onSubmitBankAccount() {
+  if (this.payBillBankFormControl.invalid) {
+    this._scrollToService.scrollTo(this.config);
+    return;
   }
+  this.dialogRef.close();
+  this.data.enrolledInAutoPay = true;
+}
+
+onSubmitCreditDebit() {
+  if (this.creditDebitBankFormControl.invalid) {
+    this._scrollToService.scrollTo(this.config);
+    return;
+  }
+  this.dialogRef.close();
+  this.data.enrolledInAutoPay = true;
+}
 }
