@@ -20,6 +20,15 @@
     color: white;
   }
 
+  #payment-option-container {
+    width: 100%;
+  }
+
+  .mat-radio-button {
+    padding-right: 6px;
+    padding-bottom: 15px;
+  }
+
   @media (max-width: 770px) {
     .form-field-col {
       width: 100%;

@@ -59,7 +59,7 @@ export class PayComponent implements OnInit {
     });
   }
 
-  getError(el) {
+  getErrors(el) {
     switch (el) {
       case 'nameOnCard':
         if (this.payBillFormControl.get('nameOnCard').hasError('required')) {

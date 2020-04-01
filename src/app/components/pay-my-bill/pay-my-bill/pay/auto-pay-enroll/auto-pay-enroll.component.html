@@ -75,12 +75,15 @@
                 <input matInput disabled value="91775">
             </mat-form-field>
 
-            <div class="mat-h3" style="margin-bottom: 0;">Payment Method</div>
-            <mat-radio-group [(ngModel)]="paymentMethod" [ngModelOptions]="{standalone: true}">
-                <mat-radio-button *ngFor="let option of paymentOptions" [value]="option">{{option}}</mat-radio-button>
-            </mat-radio-group>
+            <div id="payment-option-container">
+                <div class="mat-h3" style="margin-bottom: 10px;">Payment Method</div>
+                <mat-radio-group [(ngModel)]="paymentMethod" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button *ngFor="let option of paymentOptions" [value]="option">{{option}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
 
-            <ng-container *ngIf="bankAccount">
+            <ng-container *ngIf="paymentMethod ==='Bank Account'">
                 <mat-form-field class="form-field-col" id="invalid-form">
                     <mat-label>Financial Institution (bank, credit union, etc.)</mat-label>
                     <input matInput formControlName="bankName">
@@ -106,11 +109,38 @@
                 </mat-form-field>
                 <div class="mat-raised-button" id="check-btn">Upload Check Image</div>
             </ng-container>
-            <div *ngIf="option==='Debit/Credit Card'">
-                <div class="mat-display-1">
-                    Hello
-                </div>
-            </div>
+            <ng-container *ngIf="paymentMethod === 'Debit/Credit Card'">
+                <mat-form-field class="form-field-col">
+                    <mat-label>Name On Card</mat-label>
+                    <input matInput formControlName="nameOnCard">
+                    <mat-error *ngIf="!autoPayFormControl.controls['nameOnCard'].valid">
+                        {{getErrors('nameOnCard')}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field-col">
+                    <mat-label>Expiration Date</mat-label>
+                    <input matInput formControlName="expirationDate">
+                    <mat-error *ngIf="!autoPayFormControl.controls['expirationDate'].valid">
+                        {{getErrors('expirationDate')}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-field-col">
+                    <mat-label>Card Number</mat-label>
+                    <input matInput formControlName="cardNumber">
+                    <mat-error *ngIf="!autoPayFormControl.controls['cardNumber'].valid">
+                        {{getErrors('cardNumber')}}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field-col">
+                    <mat-label>CSV</mat-label>
+                    <input matInput formControlName="CSV">
+                    <mat-error *ngIf="!autoPayFormControl.controls['CSV'].valid">
+                        {{getErrors('CSV')}}
+                    </mat-error>
+                </mat-form-field>
+            </ng-container>
             <p>Please complete an application for each utility account. Payments rejected by your financial institution
                 will
                 incur additional fees.

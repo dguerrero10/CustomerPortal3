@@ -77,7 +77,7 @@
           <mat-label>Name On Card</mat-label>
           <input matInput formControlName="nameOnCard">
           <mat-error *ngIf="!payBillFormControl.controls['nameOnCard'].valid">
-            {{getError('nameOnCard')}}
+            {{getErrors('nameOnCard')}}
           </mat-error>
         </mat-form-field>
 
@@ -85,7 +85,7 @@
           <mat-label>Expiration Date</mat-label>
           <input matInput formControlName="expirationDate">
           <mat-error *ngIf="!payBillFormControl.controls['expirationDate'].valid">
-            {{getError('expirationDate')}}
+            {{getErrors('expirationDate')}}
           </mat-error>
         </mat-form-field>
 
@@ -93,14 +93,14 @@
           <mat-label>Card Number</mat-label>
           <input matInput formControlName="cardNumber">
           <mat-error *ngIf="!payBillFormControl.controls['cardNumber'].valid">
-            {{getError('cardNumber')}}
+            {{getErrors('cardNumber')}}
           </mat-error>
         </mat-form-field>
         <mat-form-field class="form-field-col">
           <mat-label>CSV</mat-label>
           <input matInput formControlName="CSV">
           <mat-error *ngIf="!payBillFormControl.controls['CSV'].valid">
-            {{getError('CSV')}}
+            {{getErrors('CSV')}}
           </mat-error>
         </mat-form-field>
         <div style="margin-top: 10px;">

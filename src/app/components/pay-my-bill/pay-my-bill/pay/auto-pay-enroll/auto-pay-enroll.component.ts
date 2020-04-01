@@ -39,6 +39,10 @@ export class AutoPayEnrollComponent implements OnInit {
                         Validators.minLength(9),
                         Validators.maxLength(9),
                         Validators.pattern('[0-9]{0,10}')]],
+      nameOnCard: ['', [Validators.required]],
+      expirationDate:['', [Validators.required]],
+      cardNumber: ['',[Validators.required]],
+      CSV: ['', [Validators.required]],
       signature: ['', [Validators.required]]
     });
   }
@@ -70,6 +74,26 @@ export class AutoPayEnrollComponent implements OnInit {
         }
         if (this.autoPayFormControl.get('routingNum').hasError('pattern')) {
           return 'This field only accepts numnbers.'
+        }
+        break;
+      case 'nameOnCard':
+        if (this.autoPayFormControl.get('nameOnCard').hasError('required')) {
+          return 'This field is required.'
+        }
+        break;
+      case 'expirationDate':
+        if (this.autoPayFormControl.get('expirationDate').hasError('required')) {
+          return 'This field is required.'
+        }
+        break;
+      case 'cardNumber':
+        if (this.autoPayFormControl.get('cardNumber').hasError('required')) {
+          return 'This field is required.'
+        }
+        break;
+      case 'CSV':
+        if (this.autoPayFormControl.get('CSV').hasError('required')) {
+          return 'This field is required.'
         }
         break;
       case 'signature':
