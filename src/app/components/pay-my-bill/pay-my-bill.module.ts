@@ -13,6 +13,8 @@ import { AutoPayEnrollComponent } from './pay-my-bill/pay/auto-pay-enroll/auto-p
 import { PayDetailMobileComponent } from './pay-my-bill/pay/pay-detail-mobile/pay-detail-mobile.component';
 import { RequestExtensionComponent } from './pay-my-bill/pay/request-extension/request-extension.component';
 import { PaperlessBillingEnrollComponent } from './pay-my-bill/pay/paperless-billing-enroll/paperless-billing-enroll.component';
+import { PayCreditDebitComponent } from './pay-my-bill/pay/pay-credit-debit/pay-credit-debit.component';
+import { PayBankInstitutionComponent } from './pay-my-bill/pay/pay-bank-institution/pay-bank-institution.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PaperlessBillingEnrollComponent } from './pay-my-bill/pay/paperless-bil
     AutoPayEnrollComponent,
     PayDetailMobileComponent,
     RequestExtensionComponent,
-    PaperlessBillingEnrollComponent
+    PaperlessBillingEnrollComponent,
+    PayCreditDebitComponent,
+    PayBankInstitutionComponent
   ],
   imports: [
     CommonModule,

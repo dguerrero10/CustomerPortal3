@@ -5,21 +5,6 @@
     justify-content: center;
   }
 
-  .pay-bill-form, .form-field {
-    width: 100%;
-  }
-  
-  .form-field-col {
-    width: 50%;
-  }
-
-  #check-btn {
-    margin-top: 5px;
-    margin-bottom: 15px;
-    background: #26374D; 
-    color: white;
-  }
-
   #payment-option-container {
     width: 100%;
   }
@@ -30,10 +15,6 @@
   }
 
   @media (max-width: 770px) {
-    .form-field-col {
-      width: 100%;
-    }
-
     .mat-expansion-panel {
       padding: 8px;
     }

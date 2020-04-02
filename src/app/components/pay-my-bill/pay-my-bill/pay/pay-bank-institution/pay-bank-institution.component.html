@@ -1,0 +1,72 @@
+<form class="pay-bill-form" id="invalid-form" 
+      [formGroup]="payBillBankFormControl" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-field-col" id="invalid-form">
+        <mat-label>Financial Institution (bank, credit union, etc.)</mat-label>
+        <input matInput formControlName="bankName">
+        <mat-error *ngIf="!payBillBankFormControl.controls['bankName'].valid">
+            {{getErrors('bankName')}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field-col">
+        <mat-label>Checking or Savings Account Number</mat-label>
+        <input matInput formControlName="accountBankNum">
+        <mat-error *ngIf="!payBillBankFormControl.controls['accountBankNum'].valid">
+            {{getErrors('accountBankNum')}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+        <mat-label>Financial Institution ABA routing/transit number (9 digits)</mat-label>
+        <input matInput formControlName="routingNum">
+        <mat-error *ngIf="!payBillBankFormControl.controls['routingNum'].valid">
+            {{getErrors('routingNum')}}
+        </mat-error>
+    </mat-form-field>
+    <div class="mat-raised-button" id="check-btn">Upload Check Image</div>
+    <p>Please complete an application for each utility account. Payments rejected by your financial
+        institution
+        will
+        incur additional fees.
+    </p>
+    <p>
+        I hereby authorize My Utility Services Water Company or a subsidiary company (Company) to deduct
+        funds
+        from
+        the
+        account listed above at the financial institution listed above, to pay my utility bill. The Company
+        may
+        initiate
+        a direct charge to my account for the total amount due. I understand this authorization is to remain
+        in
+        full
+        force until the Company has received written confirmation of its termination, at least 72 hours in
+        advance of
+        the next scheduled payment. I understand the Company may discontinue my participation in this
+        service,
+        if
+        necessary.
+    </p>
+    <div class="mat-h1" style="margin-top: 35px;">{{ date | date }}</div>
+    <hr>
+    <p>The user acknowledges and agrees that this document may be executed by electronic signature,
+        which shall be considered as an original signature for all purposes and shall have the same force
+        and
+        effect as an original signature.
+        <p>
+
+            <mat-checkbox>I agree.</mat-checkbox>
+            <mat-form-field class="form-field">
+                <mat-label>Enter your name as a signature</mat-label>
+                <input matInput formControlName="signature">
+                <mat-error *ngIf="!payBillBankFormControl.controls['signature'].valid">
+                    {{getErrors('signature')}}
+                </mat-error>
+            </mat-form-field>
+            <div mat-dialog-actions style="justify-content: center;">
+                <button mat-button (click)="onNoClick()">Cancel</button>
+                <button mat-raised-button type="submit" cdkFocusInitial style="background: #26374D; color: white;">
+                    Submit
+                </button>
+            </div>
+</form>
