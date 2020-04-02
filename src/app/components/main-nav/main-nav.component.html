@@ -83,3 +83,61 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<!-- <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" >
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Responsive App</h1>
+    <mat-nav-list *ngIf="navbarService.visible" class="nav-bar">
+      <a mat-list-item routerLink="/home" (click)="drawer.close()">
+        <mat-icon class="icon">home</mat-icon>
+        Home
+      </a>
+      <a mat-list-item routerLink="/pay-my-bill" (click)="drawer.close()">
+        <mat-icon class="icon">credit_card</mat-icon>
+        Pay My Bill
+      </a>
+      <a mat-list-item routerLink="/usage" (click)="drawer.close()">
+        <mat-icon class="icon">insert_chart</mat-icon>
+        Usage
+      </a>
+      <a mat-list-item routerLink="/outages" (click)="drawer.close()" >
+        <mat-icon class="icon">assignment_ind</mat-icon>
+        My Reports
+      </a>
+      <a mat-list-item routerLink="/my-account" (click)="drawer.close()">
+        <mat-icon class="icon">settings</mat-icon>
+        My Account
+      </a>
+      <a mat-list-item (click)="logout()" (click)="drawer.close()">
+        <mat-icon class="icon">logout</mat-icon>
+        Logout
+      </a>
+    </mat-nav-list>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+  *ngIf="navbarService.visible"
+                         [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches">
+      <mat-nav-list>
+        <a routerLink="/my-account" class="nav-list-item">
+          <button mat-button>
+            <mat-icon class="icon">settings</mat-icon>
+            My Account
+          </button>
+        </a>
+        <a (click)="logout()" class="nav-list-item">
+          <button mat-button>
+            <mat-icon class="icon">logout</mat-icon>
+            Logout
+          </button>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div> -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -10,6 +10,7 @@ import { Router,
          NavigationStart,
          NavigationError,
         } from '@angular/router';
+import {MediaMatcher} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-main-nav',
@@ -55,3 +56,18 @@ export class MainNavComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 }
+
+// ngOnInit() {
+//   this.navbarService.show();
+// }
+
+// mobileQuery: MediaQueryList;
+
+// private _mobileQueryListener: () => void;
+
+// constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public navbarService: NavbarService) {
+//   this.mobileQuery = media.matchMedia('(max-width: 600px)');
+//   this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+//   this.mobileQuery.addListener(this._mobileQueryListener);
+//   }
+// }
