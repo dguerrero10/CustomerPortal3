@@ -9,7 +9,7 @@ import { GoogleMapsService } from '../shared/google-maps.service';
 export class AgmMapComponent implements OnInit {
   lat: number;
   lng: number;
-
+  
   constructor() { }
 
   ngOnInit() {

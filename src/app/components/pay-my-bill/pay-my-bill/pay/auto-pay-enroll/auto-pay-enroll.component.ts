@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-auto-pay-enroll',
@@ -10,8 +12,23 @@ export class AutoPayEnrollComponent implements OnInit {
 
   paymentOptions: string[] = ['Credit/Debit Card', 'Bank Account']
 
-  constructor() {}
+  constructor(
+              private _scrollToService: ScrollToService,
+              public dialogRef: MatDialogRef<AutoPayEnrollComponent>
+             ) {}
 
   ngOnInit() {
-  } 
+  }
+
+  config: ScrollToConfigOptions = {
+    target: 'smoothScrollTarget'
+  };
+
+  smoothScroll() {
+    this._scrollToService.scrollTo(this.config);
+  }
+
+  Cancel() {
+    this.dialogRef.close();
+  }
 }

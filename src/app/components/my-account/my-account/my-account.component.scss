@@ -23,6 +23,11 @@
 
 mat-list-item {
   cursor: pointer;
+  margin-left: -16px;
+}
+
+mat-list-option {
+  margin-left: -16px;
 }
 
 mat-list-item:hover {

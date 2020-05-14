@@ -65,6 +65,12 @@ img {
   animation-fill-mode: both;
 }
 
+@media (max-width: 1400px) {
+  .list-container {
+    height: 400px;
+  }
+}
+
 @media (max-width: 800px) {
   .list-container {
     height: 400px;

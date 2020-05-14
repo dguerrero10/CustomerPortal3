@@ -1,4 +1,9 @@
-<h1 mat-dialog-title>Sign Up for Auto Pay</h1>
+<h1 mat-dialog-title style="position: relative;">
+    Sign Up for Auto Pay
+    <span class="material-icons" id="cancel-btn" (click)="Cancel()">
+        clear
+    </span>
+</h1>
 <hr>
 <mat-dialog-content class="mat-typography">
     <mat-accordion style="margin: 25px 5px;">
@@ -50,10 +55,12 @@
     <div id="payment-option-container">
         <div class="mat-h3" style="margin-bottom: 10px;">Payment Method</div>
         <mat-radio-group [(ngModel)]="paymentMethod" [ngModelOptions]="{standalone: true}">
-            <mat-radio-button *ngFor="let option of paymentOptions" [value]="option">{{option}}
+            <mat-radio-button *ngFor="let option of paymentOptions" [value]="option" 
+                              (click)="smoothScroll()">{{option}}
             </mat-radio-button>
         </mat-radio-group>
     </div>
+    <div id="smoothScrollTarget"></div>
     <div *ngIf="paymentMethod === 'Bank Account'">
         <app-pay-bank-institution></app-pay-bank-institution>
     </div>
